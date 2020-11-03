@@ -53,6 +53,7 @@ db = SQLAlchemy(app)
 class Users(db.Model):  # бд пользователей
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
+    user_nickname = db.Column(db.String)
     user_email = db.Column(db.String)
     user_name = db.Column(db.String)
     user_surname = db.Column(db.String)
@@ -60,12 +61,13 @@ class Users(db.Model):  # бд пользователей
     user_password = db.Column(db.String)
     # user_posts = db.Column(db.String)
 
-    def __init__(self, user_email, user_name, user_password, user_group, user_posts):
+    def __init__(self, user_nickname, user_email, user_name, user_password, user_group):
+        self.user_nickname = user_nickname
         self.user_email = user_email
         self.user_name = user_name
         self.user_password = user_password
         self.user_group = user_group
-        self.user_posts = user_posts
+        # self.user_posts = user_posts
 
 
 app.config['SECRET_KEY'] = 'SECRET_KEY'
