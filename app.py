@@ -15,15 +15,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://mcanmrnxroupdp:f260d4ac9d3d6
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-# engine = create_engine(
-#     'postgres://mcanmrnxroupdp:f260d4ac9d3d65eba6a7674825ad0b72e5d00c73f751a7bb7a7c8e86c8c7079d@ec2-52-1-95-247.compute-1.amazonaws.com:5432/d5srufilsb21f0'
-# )
-# connection = engine.connect()
-# metadata = MetaData(engine)
+engine = create_engine(
+    'postgres://mcanmrnxroupdp:f260d4ac9d3d65eba6a7674825ad0b72e5d00c73f751a7bb7a7c8e86c8c7079d@ec2-52-1-95-247.compute-1.amazonaws.com:5432/d5srufilsb21f0'
+)
+connection = engine.connect()
+metadata = MetaData(engine)
 
 
 # # census = Table('posts', metadata, autoload=True)
-# census = Table('users', metadata, autoload=True)
+census = Table('users', metadata, autoload=True)
 
 
 # class Posts(db.Model):  # бд постов
@@ -53,8 +53,8 @@ db = SQLAlchemy(app)
 class Users(db.Model):  # бд пользователей
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    user_nickname = db.Column(db.String)
-    user_email = db.Column(db.String)
+    user_nickname = db.Column(db.String, unique=True)
+    user_email = db.Column(db.String, unique=True)
     user_name = db.Column(db.String)
     user_surname = db.Column(db.String)
     user_group = db.Column(db.String)
@@ -81,15 +81,37 @@ def main():
 def index():
     if request.method == 'POST':
         if request.form["btn"] == "Войти":
-            name = request.form["nickname"]
+            nickname = request.form["nickname"]
             password = request.form["password"]
+
+            user = db.session.query(Users).filter(Users.nickname == nickname,
+                                                  Users.password == password).first()
+            if user:
+                name = user.name
+                surname = user.name
+            else:
+                message = "Неккоректные данные"
 
         elif request.form["btn"] == "Зарегистрироваться":
             nickname = request.form["nickname"]
             email = request.form["email"]
             name = request.form["name"]
             surname = request.form["surname"]
+            # group = request.form["group"]
             password = request.form["password"]
+
+            user = db.session.query(Users).filter(
+                Users.nickname == nickname).first()
+            if user:
+                message = "Никнейм уже занят"
+
+            user = db.session.query(Users).filter(Users.email == email).first()
+            if user:
+                message = "Почта уже занята"
+
+                # new_user = Users(nickname, email, name, surname, password)
+                # db.session.add(new_course)
+                # db.session.commit()
 
         return render_template('try.html')
 

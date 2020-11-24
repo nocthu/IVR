@@ -439,3 +439,22 @@ hr {
     width: 45%;
   }
 }
+
+@media (max-width: 570px) {
+  .nav {
+    display: none;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .right {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .post {
+    width: 90%;
+  }
+}

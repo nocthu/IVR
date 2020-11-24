@@ -7,11 +7,46 @@
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link rel="stylesheet" href="/static/css/try.css">
         <link rel="stylesheet" href="/static/css/nav.css">
+        <link rel="stylesheet" href="/static/css/header.css">
         <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css..">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
     </head>
 <body>
+    <div class="header">
+        <div class="container">
+            <div class="header_body">
+                <a href="#" class="header_logo">
+                    <img src="/static/img/hivr.png" alt="">
+                </a>
+                <!-- <a href="#" class="header_logo">
+                    <img src="/static/img/logo.png" alt="logo">
+                </a> -->
+                <div class="header_burger">
+                    <span></span>
+                </div>
+                <nav class="header_menu">
+                    <ul class="header_list">
+                        <li class="type active" data-filter="all">
+                            <a href="#" class="custom-underline">Все объявления</a>
+                        </li>
+                        <li class="type" data-filter="forme">
+                            <a href="#" class="custom-underline">Ищу для себя</a>
+                        </li>
+                        <li class="type" data-filter="me">
+                            <a href="#" class="custom-underline">Ищут меня</a>
+                        </li>
+                        <li class="type" data-filter="quizes">
+                            <a href="#" class="custom-underline">Опросы</a>
+                        </li>
+                        <li class="type" data-filter="ideas">
+                            <a href="#" class="custom-underline">Идеи</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
     <div class="page">
 
         <div class="left">
@@ -113,6 +148,10 @@
                         <!-- <div class="account-photo"></div> -->
                         <div class="postauthor">Евсеев Григорий 10И4</div>
                         <div class="postcontacts">
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                moya@pochta.ru
+                            </div>
                             <a href="#">
                                 <i class="fab fa-vk"></i>
                             </a>
@@ -352,6 +391,13 @@
                 }
             })
         })
+
+        $(document).ready(function () {
+            $('.header_burger').click(function (event) {
+                $('.header_burger, .header_menu').toggleClass('active');
+                $('body').toggleClass('lock');
+            });
+        });
     </script>
 
 </body>
