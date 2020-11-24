@@ -23,7 +23,7 @@ metadata = MetaData(engine)
 
 
 # # census = Table('posts', metadata, autoload=True)
-census = Table('users', metadata, autoload=True)
+# census = Table('users', metadata, autoload=True)
 
 
 # class Posts(db.Model):  # бд постов
