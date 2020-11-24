@@ -85,8 +85,8 @@ def index():
             nickname = request.form["nickname"]
             password = request.form["password"]
 
-            user = db.session.query(Users).filter(Users.nickname == nickname,
-                                                  Users.password == password).first()
+            # user = db.session.query(Users).filter(Users.nickname == nickname,
+            #                                       Users.password == password).first()
             if user:
                 name = user.name
                 surname = user.name
@@ -101,12 +101,12 @@ def index():
             # group = request.form["group"]
             password = request.form["password"]
 
-            user = db.session.query(Users).filter(
-                Users.nickname == nickname).first()
+            # user = db.session.query(Users).filter(
+            #     Users.nickname == nickname).first()
             if user:
                 message = "Никнейм уже занят"
 
-            user = db.session.query(Users).filter(Users.email == email).first()
+            # user = db.session.query(Users).filter(Users.email == email).first()
             if user:
                 message = "Почта уже занята"
 
