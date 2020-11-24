@@ -87,11 +87,11 @@ def index():
 
             # user = db.session.query(Users).filter(Users.nickname == nickname,
             #                                       Users.password == password).first()
-            if user:
-                name = user.name
-                surname = user.name
-            else:
-                message = "Неккоректные данные"
+            # if user:
+            #     name = user.name
+            #     surname = user.name
+            # else:
+            #     message = "Неккоректные данные"
 
         elif request.form["btn"] == "Зарегистрироваться":
             nickname = request.form["nickname"]
@@ -103,12 +103,12 @@ def index():
 
             # user = db.session.query(Users).filter(
             #     Users.nickname == nickname).first()
-            if user:
-                message = "Никнейм уже занят"
+            # if user:
+            #     message = "Никнейм уже занят"
 
             # user = db.session.query(Users).filter(Users.email == email).first()
-            if user:
-                message = "Почта уже занята"
+            # if user:
+            #     message = "Почта уже занята"
 
                 # new_user = Users(nickname, email, name, surname, password)
                 # db.session.add(new_course)
