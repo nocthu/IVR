@@ -11,12 +11,12 @@ app = Flask(__name__)
 #     app.config['SQLALCHEMY_DATABASE_URI'] = ''
 # # else:
 app.debug = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://krqmkadrzxvccs:51436b381a704d31a154e1ca5df409846d97a565afd937c2986da99627e89072@ec2-3-208-224-152.compute-1.amazonaws.com:5432/df3mar02coehmq'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://pgyrprfvmjxjqm:ae7dcfa8630cadc1b8263d59077593207b55dbdb8fddbf0a9bc8d094893fc63f@ec2-52-206-44-27.compute-1.amazonaws.com:5432/d4q64kbe6gfnoo'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 engine = create_engine(
-    'postgres://krqmkadrzxvccs:51436b381a704d31a154e1ca5df409846d97a565afd937c2986da99627e89072@ec2-3-208-224-152.compute-1.amazonaws.com:5432/df3mar02coehmq'
+    'postgres://pgyrprfvmjxjqm:ae7dcfa8630cadc1b8263d59077593207b55dbdb8fddbf0a9bc8d094893fc63f@ec2-52-206-44-27.compute-1.amazonaws.com:5432/d4q64kbe6gfnoo'
 )
 connection = engine.connect()
 metadata = MetaData(engine)
