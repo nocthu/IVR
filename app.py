@@ -11,12 +11,12 @@ app = Flask(__name__)
 #     app.config['SQLALCHEMY_DATABASE_URI'] = ''
 # # else:
 app.debug = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://mcanmrnxroupdp:f260d4ac9d3d65eba6a7674825ad0b72e5d00c73f751a7bb7a7c8e86c8c7079d@ec2-52-1-95-247.compute-1.amazonaws.com:5432/d5srufilsb21f0'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://krqmkadrzxvccs:51436b381a704d31a154e1ca5df409846d97a565afd937c2986da99627e89072@ec2-3-208-224-152.compute-1.amazonaws.com:5432/df3mar02coehmq'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 engine = create_engine(
-    'postgres://mcanmrnxroupdp:f260d4ac9d3d65eba6a7674825ad0b72e5d00c73f751a7bb7a7c8e86c8c7079d@ec2-52-1-95-247.compute-1.amazonaws.com:5432/d5srufilsb21f0'
+    'postgres://krqmkadrzxvccs:51436b381a704d31a154e1ca5df409846d97a565afd937c2986da99627e89072@ec2-3-208-224-152.compute-1.amazonaws.com:5432/df3mar02coehmq'
 )
 connection = engine.connect()
 metadata = MetaData(engine)
@@ -49,7 +49,7 @@ census = Table('users', metadata, autoload=True)
 #         self.post_contacts = post_contacts
 #         self.post_date = post_date
 
-#
+
 class Users(db.Model):  # бд пользователей
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -61,12 +61,13 @@ class Users(db.Model):  # бд пользователей
     user_password = db.Column(db.String)
     # user_posts = db.Column(db.String)
 
-    def __init__(self, user_nickname, user_email, user_name, user_password, user_group):
+    def __init__(self, user_nickname, user_email, user_name, user_surname, user_group, user_password):
         self.user_nickname = user_nickname
         self.user_email = user_email
         self.user_name = user_name
-        self.user_password = user_password
+        self.user_surname = user_surname
         self.user_group = user_group
+        self.user_password = user_password
         # self.user_posts = user_posts
 
 
@@ -113,7 +114,7 @@ def index():
                 # db.session.add(new_course)
                 # db.session.commit()
 
-        return render_template('try.html')
+        return render_template('index.html')
 
     return render_template('login.html')
 
@@ -122,7 +123,7 @@ def index():
 def add_post():
     if request.method == 'POST':
 
-        return render_template('try.html')
+        return render_template('index.html')
 
     return render_template('add_post.html')
 
@@ -131,7 +132,7 @@ def add_post():
 def add_vacancy():
     if request.method == 'POST':
 
-        return render_template('try.html')
+        return render_template('index.html')
 
     return render_template('add_vacancy.html')
 
@@ -140,7 +141,7 @@ def add_vacancy():
 def add_quiz():
     if request.method == 'POST':
 
-        return render_template('try.html')
+        return render_template('index.html')
 
     return render_template('add_quiz.html')
 
@@ -149,7 +150,7 @@ def add_quiz():
 def add_idea():
     if request.method == 'POST':
 
-        return render_template('try.html')
+        return render_template('index.html')
 
     return render_template('add_idea.html')
 

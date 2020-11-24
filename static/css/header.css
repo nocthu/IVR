@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   z-index: 50;
-  display: none;
+  display: block;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -43,6 +43,7 @@
 
 .header_burger {
   display: none;
+  margin-right: 1em;
 }
 
 .header_list {

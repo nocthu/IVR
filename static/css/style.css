@@ -1,0 +1,231 @@
+@font-face {
+    font-family: TT Commons; /* Гарнитура шрифта */
+    src: url(/static/fonts/TTCommons-Black.ttf); /* Путь к файлу со шрифтом */
+}
+  
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f5ba3d;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+   
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+   
+::-webkit-scrollbar-thumb {
+    width: 7px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: 1px solid #fff;
+}
+
+.left {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+}
+
+.right {
+    height: 100%;
+    width: 79%;
+    margin-left: 21%;
+}
+
+.account-field {
+    background: #fff;
+    /* background: #eee; */
+    color: #333;
+    padding: 10px;
+    height: 8.25%;
+  
+    display: block;
+    border-radius: 10px;
+    transition: all 0.4s;
+  
+    width: 90%;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 1em auto;
+}
+  
+.account-photo {
+    height: 3em;
+    width: 3em;
+    border-radius: 5px;
+    background: #fff;
+    float: left;
+    margin-right: 1em;
+}
+
+.us_icon {
+    float: left;
+}
+
+.account-name {
+    margin: 0 20px;
+    color: #000;
+}
+
+.account-links {
+    display: flex;
+    margin: 0.5em;
+}
+
+.account-logout {
+    margin-left: 1em;
+}
+
+.myposts {
+    width: 90%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 1em auto;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.options {
+    display: block;
+    background: #fff;
+    border-radius: 10px;
+    transition: all 0.4s;
+  
+    width: 90%;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 0 auto;
+}
+  
+.f {
+    border-radius: 10px 10px 0 0;
+    margin-top: 1em;
+}
+
+.l {
+    border-radius: 0 0 10px 10px;
+}
+
+.op {
+    font-size: 125%;
+    display: block;
+    padding: 10px;
+    color: #333;
+    font-family: "TT Commons";
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.op:hover {
+    background: #333;
+    color: #f5ba3d;
+}
+
+.menu {
+    width: 78%;
+    height: 8.25%;
+    background: #fff;
+    margin: 1em auto;
+    padding: 15px;
+    border-radius: 10px;
+    position: fixed;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.types {
+    font-family: "TT Commons", sans-serif;
+    font-weight: 700;
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+  
+.type {
+    position: relative;
+    list-style: none;
+    cursor: pointer;
+    padding: 10px;
+    height: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.3s;
+    color: #333;
+    margin-right: 5%;
+}
+
+/* .posts {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+} */
+
+.posts {
+    justify-content: space-between;
+    align-items: center;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 78%;
+    margin-top: 6.4%;
+    position: fixed;
+    overflow-y: scroll;
+}
+
+.post {
+    margin: 1em;
+    background: #fff;
+    width: 30%;
+    height: auto;
+    padding: 2em;
+    border-radius: 10px;
+}
+
+.posttype {
+    text-align: center;
+    width: 25%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(63, 124, 191, 0.25);
+    color: #3f7cbf;
+    margin-top: -0.5em;
+}
+  
+.postname {
+    text-align: center;
+    font-weight: bold;
+}
+  
+.btn-answ {
+    width: 100%;
+    padding: 10px;
+    margin-top: 1em;
+    text-align: center;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: rgba(124, 165, 82, 0.25);
+    cursor: pointer;
+} 
+
+@media (max-width: 2500px) {
+    .post {
+        width: 45%;
+    }
+}

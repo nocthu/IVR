@@ -23,8 +23,6 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  /* background:  rgba(2, 62, 140, 0.5); */
-  /* background: #f2f3f7; */
   background: #f5ba3d;
 }
 
@@ -43,12 +41,9 @@ hr {
   width: 20%;
   height: 100%;
 
-  /* background: #f2f3f7; */
-  /* background: #f5ba3d; */
   background: #fff;
 
   position: fixed;
-  /* box-shadow: 5px 0 5px rgba(0, 0, 0, 0.1); */
   box-shadow: 15px 10px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -84,15 +79,6 @@ hr {
   margin: 0 auto;
 }
 
-/* .alogout {
-      margin-top: 10px;
-      text-decoration: none;
-      background: rgba(255, 0, 0, 0.25);
-      color: rgba(255, 0, 0, 0.75);
-      padding: 5px;
-      border-radius: 5px;
-  } */
-
 .nav {
   height: 4.5em;
   width: 100%;
@@ -100,23 +86,18 @@ hr {
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 1);
-  /* padding: 5px; */
-  /* margin-bottom: 2.5em; */
   display: flex;
   position: fixed;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
-  /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3); */
 }
 
 .types {
   font-family: "TT Commons", sans-serif;
-  /* font-size: 100%; */
   font-weight: 700;
   position: relative;
   display: flex;
   width: 100%;
   margin: 0;
-  /* justify-content: center; */
 }
 
 .type {
@@ -127,22 +108,11 @@ hr {
   height: 30px;
   text-transform: uppercase;
   font-weight: bold;
-  /* width: 20em; */
   border-radius: 10px 10px 0 0;
   transition: all 0.3s;
-  /* color: #033E8C; */
   color: #333;
   margin-right: 5%;
 }
-
-/* .type.active {
-      border-bottom: 2px solid #f5ba3d; 
-      background:  rgba(2, 62, 140, 0.5); 
-      background: #f5ba3d; 
-      color: #f5ba3d;
-      margin-top: 21px; 
-      box-shadow: 1px -10px 10px rgba(0, 0, 0, 0.2); 
-  } */
 
 .dif .c {
   align-items: center;
@@ -156,19 +126,15 @@ hr {
 
 .v {
   margin-top: 3em;
-  /* border-top: 1px #00f;
-      border-bottom: 1px #00f; */
   width: 100%;
 }
 
 .c {
   font-size: 125%;
   background: #fff;
-  /* color: #033e8c; */
   color: #333;
   padding: 10px;
   width: 100%;
-  /* border-radius: 10px; */
   font-family: "TT Commons";
   text-decoration: none;
   text-transform: uppercase;
@@ -177,8 +143,6 @@ hr {
 }
 
 .op:hover {
-  /* color: #fff; */
-  /* background: rgba(2, 62, 140, 0.9); */
   background: #f5ba3d;
 }
 
@@ -188,7 +152,6 @@ hr {
   font-weight: bold;
   font-size: 140%;
   background: #fff;
-  /* color: rgba(2, 62, 140, 1); */
   color: #333;
   margin-bottom: 15px;
   margin-left: 5px;
@@ -196,13 +159,11 @@ hr {
 
 .options {
   display: block;
-  /* background: rgba(125, 125, 125, 0.05); */
   background: #eee;
   border-radius: 10px;
   transition: all 0.4s;
 
   width: 90%;
-  /* box-shadow: 5px -10px 10px rgba(0, 0, 0, 0.1); */
   box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin: 0 auto;
@@ -225,7 +186,6 @@ hr {
   font-size: 125%;
   display: block;
   padding: 10px;
-  /* color: #033e8c; */
   color: #333;
   font-family: "TT Commons";
   text-decoration: none;
@@ -236,7 +196,6 @@ hr {
   display: flex;
   align-items: center;
   text-align: center;
-  /* text-align: left; */
   margin-left: 2em;
   margin: 1em;
   color: #fff;
@@ -269,13 +228,10 @@ hr {
 }
 
 .postcontacts a:hover {
-  /* background: #f5ba3d; */
   color: #f5ba3d;
 }
 
 .account-field {
-  /* border-radius: 10px; */
-  /* background: rgba(125, 125, 125, 0.1); */
   background: #eee;
   color: #333;
   padding: 10px;
@@ -286,7 +242,6 @@ hr {
   transition: all 0.4s;
 
   width: 90%;
-  /* box-shadow: 5px -10px 10px rgba(0, 0, 0, 0.1); */
   box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin: 0 auto;
@@ -330,38 +285,7 @@ hr {
   height: 40%;
   padding: 2em;
   border-radius: 10px;
-  /* box-shadow: inset 5px -10px 10px rgba(245, 186, 61, 0.15); */
-  /* transition: all 0.4s; */
 }
-
-/* .fir {
-      margin: 1em;
-      width: 30%;
-      display: inline-block;
-      padding: 30px;
-      text-decoration: none;
-      /* text-transform: uppercase; */
-/* font-weight: 500; */
-/* letter-spacing: 2px; */
-/* color: #033E8C; 
-      border-radius: 40px;
-      box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-                  -2px -2px 12px rgba(255, 255, 255, 0.5),
-                  inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-                  2px 2px 8px rgba(0, 0, 0, 0.15);
-  }
-  
-  .fir:hover {
-      box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
-                  inset -2px -2px 12px rgba(255, 255, 255, 0.5),
-                  2px 2px 4px rgba(255, 255, 255, 0.1),
-                  inset 2px 2px 8px rgba(0, 0, 0, 0.15);
-  }
-  
-  .fir:hover span {
-      display: inline-block;
-      transform: scale(0.98);
-  }   */
 
 .posttype {
   text-align: center;
@@ -377,10 +301,6 @@ hr {
   text-align: center;
   font-weight: bold;
 }
-
-/* .postrequied, .postpurpose {
-      overflow-y: scroll;
-  } */
 
 .btn-answ {
   width: 100%;
@@ -399,31 +319,6 @@ hr {
   color: #7ca653;
 }
 
-/* .neobutton {
-    display: inline-block;
-    padding: 10px 30px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 2px;
-    color: #033e8c;
-    border-radius: 40px;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-      -2px -2px 12px rgba(255, 255, 255, 0.5),
-      inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
-  }
-  
-  .neobutton:hover {
-    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
-      inset -2px -2px 12px rgba(255, 255, 255, 0.5),
-      2px 2px 4px rgba(255, 255, 255, 0.1), inset 2px 2px 8px rgba(0, 0, 0, 0.15);
-  }
-  
-  .neobutton:hover span {
-    display: inline-block;
-    transform: scale(0.98);
-  } */
-
 .footer {
   height: 100%;
   background-color: #fff;
@@ -434,7 +329,7 @@ hr {
   margin: 2.5em;
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 2500px) {
   .post {
     width: 45%;
   }
