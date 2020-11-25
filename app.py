@@ -124,7 +124,7 @@ def index():
             db.session.add(user)
             db.session.commit()
 
-        return render_template('index.html', user=user)
+        return render_template('index.html', surname=surname, name=name, id=user.user_id)
 
     return render_template('login.html')
 
