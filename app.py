@@ -171,7 +171,7 @@ def add_post():
         # prttype = request.form["prtype"]
         # prsub = request.form["prsub"]
         # probtype = request.form["probtype"]
-        # name = request.form["name"]
+        name = request.form["name"]
         demands = request.form["demands"]
         description = request.form["description"]
         href_vk = request.form["href_vk"]
