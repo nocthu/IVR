@@ -201,20 +201,22 @@ def add_post():
         user_id = session['usid']
         user_name = session['name']
         user_surname = session['surname']
-        # prtype = request.form["type"]
-        # prsub = request.form["subject"]
-        # probtype = request.form["problemtype"]
-        prtype = request.form.get('type')
-        prsub = request.form.get('subject')
-        probtype = request.form.get('problemtype')
+        post_type = 1
+        project_type = request.form.get('type')
+        subject = request.form.get('subject')
+        problem_type = request.form.get('problemtype')
         name = request.form["name"]
         demands = request.form["demands"]
         description = request.form["description"]
         href_vk = request.form["href_vk"]
         href_telegram = request.form["href_telegram"]
         href_google = request.form["href_google"]
+        href_quiz = None
+        date = None
 
-        post = Posts()
+        post = Posts(user_id, user_name, user_surname, post_type, 
+                    project_type, subject, problem_type, name, demands, description, 
+                    href_vk, href_telegram, href_google, href_quiz, date)
         db.session.add(post)
         db.session.commit()
 
