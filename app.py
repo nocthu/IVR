@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, request, url_for, jsonify
+from flask import Flask, render_template, session, redirect, request, url_for, jsonify, session, g
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, MetaData, Table
 
@@ -88,9 +88,25 @@ def main():
     app.run()
 
 
+@app.before_request
+def before_request():
+    g.name = None
+    g.surname = None
+
+    if 'name' in session and 'surname' in session:
+        g.name = session['name']
+        g.surname = session['surname']
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    if g.name and g.surname:
+        return render_template('index.html', name=session['name'], surname=session['surname'])
+
     if request.method == 'POST':
+        session.pop('name', None)
+        session.pop('surname', None)
+
         if request.form["btn"] == "Войти":
             nickname = request.form["nickname"]
             password = request.form["password"]
@@ -102,6 +118,9 @@ def index():
                 surname = user.user_surname
             else:
                 message = "Неккоректные данные"
+
+            session['name'] = name
+            session['surname'] = surname
 
         elif request.form["btn"] == "Зарегистрироваться":
             nickname = request.form["nickname"]
@@ -123,6 +142,9 @@ def index():
             user = Users(nickname, email, name, surname, group, password)
             db.session.add(user)
             db.session.commit()
+
+            session['name'] = name
+            session['surname'] = surname
 
         return render_template('index.html', surname=surname, name=name, id=user.id)
 
