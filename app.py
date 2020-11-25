@@ -88,8 +88,8 @@ def index():
             user = db.session.query(Users).filter(Users.user_nickname == nickname,
                                                   Users.user_password == password).first()
             if user:
-                name = user.name
-                surname = user.name
+                name = user.user_name
+                surname = user.user_surname
             else:
                 message = "Неккоректные данные"
 
