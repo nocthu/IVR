@@ -87,224 +87,135 @@
             <section class="posts">
 
                 {% for p in post %}
-                <div class="post">
-                    <div class="postname">{{ p[0] }}</div>
-                    <div class="postrequied">{{ p[1] }}</div>
-                </div>
+
+                    <div class="post forme">
+
+                        <div class="posttype">p[3]</div>
+
+                        <div class="postname"><h3>p[5]</h3></div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p>p[7]</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="postpurpose">p[6]</div>
+
+                        <hr>
+
+                        <div class="postauthor">p[1] p[0] (?)класс</div>
+
+                        <div class="postcontacts">
+
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                p[11]
+                            </div>
+
+                            <a href="{{ p[9] }}">
+                                <i class="fab fa-vk"></i>
+                            </a>
+
+                            <a href="{{ p[10] }]">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
                 {% endfor %}
 
-                <div class="post forme">
-                    <div class="posttype">Дизайн</div>
-                    <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
-                    <hr>
-                    <div class="postrequied"><p>Для современного мира постоянный количественный рост и сфера нашей активности 
-                        в значительной степени обуславливает создание системы обучения кадров, 
-                        соответствующей насущным потребностям. Не следует, однако, забывать, что постоянное информационно-пропогандистское 
-                        обеспечение нашей деятельности позволяет оценить значение представляет собой 
-                        интересный эксперимент прогресса профессионального общества.</p></div>
-                    <hr>
-                    <div class="postpurpose">Необходимы навыки владения Adobe Photoshop или Figma.</div>
-                    <hr>
-                    <div class="postauthor">Евсеев Григорий 10И4</div>
-                    <div class="postcontacts">
-                        <div class="email">
-                            <i class="fas fa-envelope"></i>
-                            moya@pochta.ru
+                {% for v in vacancy %}
+                    
+                    <div class="post me">
+                        
+                        <div class="posttype">Вакансия</div>
+
+                        <div class="postname"><h3>v[2]</h3></div>
+                        <hr>
+                        <div class="postrequied">
+                            <p>v[3]</p>
                         </div>
-                        <a href="#">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                </div>
-                    <!-- <div class="btn-answ"><a href="#" class="">Ответить на заявку</a></div> -->
-                </div>
+                        <hr>
+                        <div class="postauthor">v[1] v[0] (?)класс</div>
+                        <div class="postcontacts">
 
-                <div class="post me">
-                    <div class="posttype">Дизайн</div>
-                    <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
-                    <hr>
-                    <div class="postrequied"><p>Для современного мира постоянный количественный рост и сфера нашей активности 
-                        в значительной степени обуславливает создание системы обучения кадров, 
-                        соответствующей насущным потребностям. Не следует, однако, забывать, что постоянное информационно-пропогандистское 
-                        обеспечение нашей деятельности позволяет оценить значение представляет собой 
-                        интересный эксперимент прогресса профессионального общества.</p></div>
-                    <hr>
-                    <div class="postpurpose">Необходимы навыки владения Adobe Photoshop или Figma.</div>
-                    <hr>
-                    <!-- <div class="account-photo"></div> -->
-                    <div class="postauthor">Евсеев Григорий 10И4</div>
-                    <div class="postcontacts">
-                        <a href="#">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                </div>
-                </div>
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                v[6]
+                            </div>
 
-                <div class="post forme">
-                    <div class="posttype">Дизайн</div>
-                    <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
-                    <hr>
-                    <div class="postrequied"><p>Для современного мира постоянный количественный рост и сфера нашей активности 
-                        в значительной степени обуславливает создание системы обучения кадров, 
-                        соответствующей насущным потребностям. Не следует, однако, забывать, что постоянное информационно-пропогандистское 
-                        обеспечение нашей деятельности позволяет оценить значение представляет собой 
-                        интересный эксперимент прогресса профессионального общества.</p></div>
-                    <hr>
-                    <div class="postpurpose">Необходимы навыки владения Adobe Photoshop или Figma.</div>
-                    <hr>
-                    <div class="postauthor">Евсеев Григорий 10И4</div>
-                    <div class="postcontacts">
-                        <a href="#">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                </div>
-                </div>
+                            <a href="{{ v[4] }}">
+                                <i class="fab fa-vk"></i>
+                            </a>
 
-                <div class="post me">
-                    <div class="posttype">Дизайн</div>
-                    <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
-                    <hr>
-                    <div class="postrequied"><p>Для современного мира постоянный количественный рост и сфера нашей активности 
-                        в значительной степени обуславливает создание системы обучения кадров, 
-                        соответствующей насущным потребностям. Не следует, однако, забывать, что постоянное информационно-пропогандистское 
-                        обеспечение нашей деятельности позволяет оценить значение представляет собой 
-                        интересный эксперимент прогресса профессионального общества.</p></div>
-                    <hr>
-                    <div class="postpurpose">Необходимы навыки владения Adobe Photoshop или Figma.</div>
-                    <hr>
-                    <div class="postauthor">Евсеев Григорий 10И4</div>
-                    <div class="postcontacts">
-                        <a href="#">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                </div>
-                </div>
+                            <a href="{{ v[5] }}">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
 
-                <div class="post forme">
-                    <div class="posttype">Дизайн</div>
-                    <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
-                    <hr>
-                    <div class="postrequied"><p>Для современного мира постоянный количественный рост и сфера нашей активности 
-                        в значительной степени обуславливает создание системы обучения кадров, 
-                        соответствующей насущным потребностям. Не следует, однако, забывать, что постоянное информационно-пропогандистское 
-                        обеспечение нашей деятельности позволяет оценить значение представляет собой 
-                        интересный эксперимент прогресса профессионального общества.</p></div>
-                    <hr>
-                    <div class="postpurpose">Необходимы навыки владения Adobe Photoshop или Figma.</div>
-                    <hr>
-                    <div class="postauthor">Евсеев Григорий 10И4</div>
-                    <div class="postcontacts">
-                        <a href="#">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                </div>
-                </div>
+                        </div>
+                    </div>
 
-                <div class="post me">
-                    <div class="posttype">Дизайн</div>
-                    <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
-                    <hr>
-                    <div class="postrequied"><p>Для современного мира постоянный количественный рост и сфера нашей активности 
-                        в значительной степени обуславливает создание системы обучения кадров, 
-                        соответствующей насущным потребностям. Не следует, однако, забывать, что постоянное информационно-пропогандистское 
-                        обеспечение нашей деятельности позволяет оценить значение представляет собой 
-                        интересный эксперимент прогресса профессионального общества.</p></div>
-                    <hr>
-                    <div class="postpurpose">Необходимы навыки владения Adobe Photoshop или Figma.</div>
-                    <hr>
-                    <div class="postauthor">Евсеев Григорий 10И4</div>
-                    <div class="postcontacts">
-                        <a href="#">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                </div>
-                </div>
+                {% endfor %}
 
-                <div class="post forme">
-                    <div class="posttype">Дизайн</div>
-                    <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
-                    <hr>
-                    <div class="postrequied"><p>Для современного мира постоянный количественный рост и сфера нашей активности 
-                        в значительной степени обуславливает создание системы обучения кадров, 
-                        соответствующей насущным потребностям. Не следует, однако, забывать, что постоянное информационно-пропогандистское 
-                        обеспечение нашей деятельности позволяет оценить значение представляет собой 
-                        интересный эксперимент прогресса профессионального общества.</p></div>
-                    <hr>
-                    <div class="postpurpose">Необходимы навыки владения Adobe Photoshop или Figma.</div>
-                    <hr>
-                    <div class="postauthor">Евсеев Григорий 10И4</div>
-                    <div class="postcontacts">
-                        <a href="#">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                </div>
-                </div>
+                {% for q in quiz %}
 
-                <div class="post me">
-                    <div class="posttype">Дизайн</div>
-                    <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
-                    <hr>
-                    <div class="postrequied"><p>Для современного мира постоянный количественный рост и сфера нашей активности 
-                        в значительной степени обуславливает создание системы обучения кадров, 
-                        соответствующей насущным потребностям. Не следует, однако, забывать, что постоянное информационно-пропогандистское 
-                        обеспечение нашей деятельности позволяет оценить значение представляет собой 
-                        интересный эксперимент прогресса профессионального общества.</p></div>
-                    <hr>
-                    <div class="postpurpose">Необходимы навыки владения Adobe Photoshop или Figma.</div>
-                    <hr>
-                    <div class="postauthor">Евсеев Григорий 10И4</div>
-                    <div class="postcontacts">
-                        <a href="#">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                </div>
-                </div>
+                    <div class="post quizes">
+                        
+                        <div class="posttype">Опрос</div>
 
-                <div class="post forme">
-                    <div class="posttype">Дизайн</div>
-                    <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
-                    <hr>
-                    <div class="postrequied"><p>Для современного мира постоянный количественный рост и сфера нашей активности 
-                        в значительной степени обуславливает создание системы обучения кадров, 
-                        соответствующей насущным потребностям. Не следует, однако, забывать, что постоянное информационно-пропогандистское 
-                        обеспечение нашей деятельности позволяет оценить значение представляет собой 
-                        интересный эксперимент прогресса профессионального общества.</p></div>
-                    <hr>
-                    <div class="postpurpose">Необходимы навыки владения Adobe Photoshop или Figma.</div>
-                    <hr>
-                    <div class="postauthor">Евсеев Григорий 10И4</div>
-                    <div class="postcontacts">
-                        <a href="#">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                </div>
-                </div>
+                        <div class="postname"><h3>p[2]</h3></div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p>p[3]</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="postauthor">q[1] q[0] (?)класс</div>
+
+                        <div class="postcontacts">
+
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                q[6]
+                            </div>
+
+                            <a href="{{ q[4] }}">
+                                <i class="fab fa-vk"></i>
+                            </a>
+
+                            <a href="{{ q[5] }]">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+                {% for i in idea %}
+                    <div class="post ideas">
+
+                        <div class="posttype">Идея</div>
+
+                        <div class="postname"><h3>i[2]</h3></div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p>i[3]</p>
+                        </div>
+
+                    </div>
+                {% endfor %}
                 
             </section>
 

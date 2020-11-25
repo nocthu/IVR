@@ -40,9 +40,6 @@ class Posts(db.Model):  # бд постов
     user_id = db.Column(db.Integer)
     user_name = db.Column(db.String)
     user_surname = db.Column(db.String)
-    # href_vk = db.Column(db.String)
-    # href_telegram = db.Column(db.String)
-    # href_google = db.Column(db.String)
     post_type = db.Column(db.Integer) # для себя - 1, вакансия - 2, опрос - 3, идея - 4
     project_type = db.Column(db.String) # тип ИВР
     subject = db.Column(db.String) # предмет ИВР
@@ -55,15 +52,6 @@ class Posts(db.Model):  # бд постов
     href_google = db.Column(db.String)
     href_quiz = db.Column(db.String)
     date = db.Column(db.String)
-
-    # post_aim = db.Column(db.String)
-    # post_type = db.Column(db.String)
-    # post_name = db.Column(db.String)
-    # post_required = db.Column(db.String)
-    # post_purpose = db.Column(db.String)
-    # post_author = db.Column(db.String)
-    # post_contacts = db.Column(db.String)
-    # post_date = db.Column(db.String)
 
     def __init__(self, user_id, user_name, user_surname, 
                     post_type, project_type, subject, problem_type, name, demands, description, 
@@ -149,21 +137,36 @@ def index():
         idea = []
         for i in all_posts:
             if i.post_type == 1:
-                post.append([
-                    i.name, i.description
-                ])
+                if i.user_id != g.usid:
+                    post.append([
+                        i.user_name, i.user_surname, i.project_type, 
+                        i.subject, i.problem_type, i.name, i.demands, i.description, 
+                        i.href_vk, i.href_telegram, i.href_google
+                    ])
             elif i.post_type == 2:
-                vacancy.append([
-                    i.name, i.description
-                ])
+                if i.user_id != g.usid:
+                    vacancy.append([
+                        i.user_name, i.user_surname, 
+                        i.problem_type, i.description, 
+                        i.href_vk, i.href_telegram, i.href_google
+                    ])
             elif i.post_type == 3:
-                quiz.append([
-                    i.name, i.description
-                ])
+                if i.user_id != g.usid:
+                    quiz.append([
+                        i.user_name, i.user_surname, 
+                        i.name, i.description, 
+                        i.href_vk, i.href_telegram, i.href_google, i.href_quiz
+                    ])
             elif i.post_type == 4:
-                idea.append([
-                    i.name, i.description
-                ])
+                if i.user_id != g.usid:
+                    idea.append([
+                        i.project_type, i.subject, i.name, i.description
+                    ])
+
+            post.reverse()
+            vacancy.reverse()
+            quiz.reverse()
+            idea.reverse()
             
         return render_template('index.html', name=session['name'], surname=session['surname'], id=session['usid'], 
                                 post=post, vacancy=vacancy, quiz=quiz, idea=idea)
@@ -218,21 +221,38 @@ def index():
         post = []
         for i in all_posts:
             if i.post_type == 1:
-                post.append([
-                    i.name, i.description
-                ])
+                if i.user_id != g.usid:
+                    post.append([
+                        i.user_name, i.user_surname, i.project_type, 
+                        i.subject, i.problem_type, i.name, i.demands, i.description, 
+                        i.href_vk, i.href_telegram, i.href_google
+                    ])
             elif i.post_type == 2:
-                vacancy.append([
-                    i.name, i.description
-                ])
+                if i.user_id != g.usid:
+                    vacancy.append([
+                        i.user_name, i.user_surname, 
+                        i.problem_type, i.description, 
+                        i.href_vk, i.href_telegram, i.href_google
+                    ])
             elif i.post_type == 3:
-                quiz.append([
-                    i.name, i.description
-                ])
+                if i.user_id != g.usid:
+                    quiz.append([
+                        i.user_name, i.user_surname, 
+                        i.name, i.description, 
+                        i.href_vk, i.href_telegram, i.href_google, i.href_quiz
+                    ])
             elif i.post_type == 4:
-                idea.append([
-                    i.name, i.description
-                ])
+                if i.user_id != g.usid:
+                    idea.append([
+                        i.user_name, i.user_surname, i.project_type, 
+                        i.subject, i.problem_type, i.name, i.description, 
+                        i.href_vk, i.href_telegram, i.href_google
+                    ])
+
+            post.reverse()
+            vacancy.reverse()
+            quiz.reverse()
+            idea.reverse()
             
 
         return render_template('index.html', surname=surname, name=name, id=user.id, 
@@ -284,6 +304,19 @@ def add_vacancy():
         href_telegram = request.form['href_telegram']
         href_google = request.form['href_google']
 
+        project_type = None
+        subject = None
+        name = None
+        demands = None
+        href_quiz = None
+        date = None
+
+        post = Posts(user_id, user_name, user_surname, post_type, 
+                    project_type, subject, problem_type, name, demands, description, 
+                    href_vk, href_telegram, href_google, href_quiz, date)
+        db.session.add(post)
+        db.session.commit()
+
         return redirect(url_for('index'))
 
     return render_template('add_vacancy.html')
@@ -302,6 +335,18 @@ def add_quiz():
         href_vk = request.form['href_vk']
         href_telegram = request.form['href_telegram']
         href_google = request.form['href_google']
+
+        project_type = None
+        subject = None
+        problem_type = None
+        demands = None
+        date = None
+
+        post = Posts(user_id, user_name, user_surname, post_type, 
+                    project_type, subject, problem_type, name, demands, description, 
+                    href_vk, href_telegram, href_google, href_quiz, date)
+        db.session.add(post)
+        db.session.commit()
         
         return redirect(url_for('index'))
 
@@ -320,6 +365,19 @@ def add_idea():
         problem_type = request.form.get('problemtype')
         name = request.form['name']
         description = request.form['description']
+
+        demands = None
+        href_vk = None
+        href_telegram = None
+        href_google = None
+        href_quiz = None
+        date = None
+
+        post = Posts(user_id, user_name, user_surname, post_type, 
+                    project_type, subject, problem_type, name, demands, description, 
+                    href_vk, href_telegram, href_google, href_quiz, date)
+        db.session.add(post)
+        db.session.commit()
 
         return redirect(url_for('index'))
 
