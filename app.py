@@ -173,6 +173,8 @@ def add_post():
         # prtype = request.form["type"]
         # prsub = request.form["subject"]
         # probtype = request.form["problemtype"]
+        prtype = request.form.get('type')
+        prsub = request.form.get('subject')
         probtype = request.form.get('problemtype')
         name = request.form["name"]
         demands = request.form["demands"]
