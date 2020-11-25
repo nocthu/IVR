@@ -264,6 +264,51 @@ def index():
     return render_template('login.html')
 
 
+
+@app.route('/myposts', methods=['GET', 'POST'])
+def myposts():
+    if request.method == 'POST':
+
+
+
+        return redirect(url_for('index'))
+
+    all_posts = db.session.query(Posts).filter(
+                Posts.user_id == g.usid
+            ).all()
+    post = []
+    vacancy = []
+    quiz = []
+    idea = []
+    for i in all_posts:
+        if i.post_type == 1:
+            post.append([
+                i.user_name, i.user_surname, i.project_type, 
+                i.subject, i.problem_type, i.name, i.demands, i.description, 
+                i.href_vk, i.href_telegram, i.href_google
+            ])
+        elif i.post_type == 2:
+            vacancy.append([
+                i.user_name, i.user_surname, 
+                i.problem_type, i.description, 
+                i.href_vk, i.href_telegram, i.href_google
+            ])
+        elif i.post_type == 3:
+            quiz.append([
+                i.user_name, i.user_surname, 
+                i.name, i.description, 
+                i.href_vk, i.href_telegram, i.href_google, i.href_quiz
+            ])
+        elif i.post_type == 4:
+            idea.append([
+                i.user_name, i.user_surname, i.project_type, 
+                i.subject, i.problem_type, i.name, i.description, 
+                i.href_vk, i.href_telegram, i.href_google
+            ])
+
+    return render_template('myposts.html', post=post, vacancy=vacancy, quiz=quiz, idea=idea)
+
+
 @app.route('/add_post', methods=['GET', 'POST'])
 def add_post():
     if request.method == 'POST':

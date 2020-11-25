@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХелпИВР</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css..">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <form action="" method="post">
+
+        <section class="posts">
+
+            {% for p in post %}
+
+                <div class="post forme">
+
+                    <div class="posttype">{{ p[3] }}</div>
+
+                    <div class="postname"><h3>{{ p[5] }}</h3></div>
+
+                    <hr>
+
+                    <div class="postrequied">
+                        <p>{{ p[7] }}</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="postpurpose">{{ p[6] }}</div>
+
+                    <hr>
+
+                    <div class="postauthor">{{ p[1] }} {{ p[0] }} (?)класс</div>
+
+                    <div class="postcontacts">
+
+                        <div class="email">
+                            <i class="fas fa-envelope"></i>
+                            {{ p[11] }}
+                        </div>
+
+                        <a href="{{ p[9] }}">
+                            <i class="fab fa-vk"></i>
+                        </a>
+
+                        <a href="{{ p[10] }}">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+            {% for v in vacancy %}
+                
+                <div class="post me">
+                    
+                    <div class="posttype">Вакансия</div>
+
+                    <div class="postname"><h3>{{ v[2] }}</h3></div>
+                    <hr>
+                    <div class="postrequied">
+                        <p>v[3]</p>
+                    </div>
+                    <hr>
+                    <div class="postauthor">{{ v[1] }} {{ v[0] }} (?)класс</div>
+                    <div class="postcontacts">
+
+                        <div class="email">
+                            <i class="fas fa-envelope"></i>
+                            {{ v[6] }}
+                        </div>
+
+                        <a href="{{ v[4] }}">
+                            <i class="fab fa-vk"></i>
+                        </a>
+
+                        <a href="{{ v[5] }}">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            {% for q in quiz %}
+
+                <div class="post quizes">
+                    
+                    <div class="posttype">Опрос</div>
+
+                    <div class="postname"><h3>{{ q[2] }}</h3></div>
+
+                    <hr>
+
+                    <div class="postrequied">
+                        <p>{{ q[3] }}</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="postauthor">{{ q[1] }} {{ q[0] }} (?)класс</div>
+
+                    <div class="postcontacts">
+
+                        <div class="email">
+                            <i class="fas fa-envelope"></i>
+                            {{ q[6] }}
+                        </div>
+
+                        <a href="{{ q[4] }}">
+                            <i class="fab fa-vk"></i>
+                        </a>
+
+                        <a href="{{ q[5] }}">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+            {% for i in idea %}
+                <div class="post ideas">
+
+                    <div class="posttype">Идея</div>
+
+                    <div class="postname"><h3>{{ i[2] }}</h3></div>
+
+                    <hr>
+
+                    <div class="postrequied">
+                        <p>{{ i[3] }}</p>
+                    </div>
+
+                </div>
+            {% endfor %}
+            
+        </section>
+
+        <input type="submit" value="Удалить выбранные посты" name="btn" class="btn solid b-enter">
+    </form>
+
+</body>
+</html>

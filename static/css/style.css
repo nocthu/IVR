@@ -84,10 +84,10 @@ body {
     display: flex;
     margin: 0.5em;
 }
-
+/* 
 .account-logout {
     margin-left: 1em;
-}
+} */
 
 .myposts {
     width: 90%;
