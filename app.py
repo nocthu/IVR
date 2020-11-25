@@ -168,6 +168,8 @@ def index():
 def add_post():
     if request.method == 'POST':
         user_id = session['usid']
+        user_name = session['name']
+        user_surname = session['surname']
         # prttype = request.form["prtype"]
         # prsub = request.form["prsub"]
         # probtype = request.form["probtype"]
@@ -177,6 +179,10 @@ def add_post():
         href_vk = request.form["href_vk"]
         href_telegram = request.form["href_telegram"]
         href_google = request.form["href_google"]
+
+        post = Posts()
+        db.session.add(post)
+        db.session.commit()
 
         return redirect(url_for('index'))
 
