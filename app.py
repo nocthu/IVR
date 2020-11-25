@@ -144,11 +144,29 @@ def index():
     if g.name and g.surname and g.usid:
         all_posts = db.session.query(Posts).all()
         post = []
+        vacancy = []
+        quiz = []
+        idea = []
         for i in all_posts:
-            post.append([
-                i.name, i.description
-            ])
-        return render_template('index.html', name=session['name'], surname=session['surname'], id=session['usid'], post=post)
+            if i.post_type == 1:
+                post.append([
+                    i.name, i.description
+                ])
+            elif i.post_type == 2:
+                vacancy.append([
+                    i.name, i.description
+                ])
+            elif i.post_type == 3:
+                quiz.append([
+                    i.name, i.description
+                ])
+            elif i.post_type == 4:
+                idea.append([
+                    i.name, i.description
+                ])
+            
+        return render_template('index.html', name=session['name'], surname=session['surname'], id=session['usid'], 
+                                post=post, vacancy=vacancy, quiz=quiz, idea=idea)
 
     if request.method == 'POST':
         session.pop('name', None)
@@ -199,11 +217,26 @@ def index():
         all_posts = db.session.query(Posts).all()
         post = []
         for i in all_posts:
-            post.append([
-                i.name, i.description
-            ])
+            if i.post_type == 1:
+                post.append([
+                    i.name, i.description
+                ])
+            elif i.post_type == 2:
+                vacancy.append([
+                    i.name, i.description
+                ])
+            elif i.post_type == 3:
+                quiz.append([
+                    i.name, i.description
+                ])
+            elif i.post_type == 4:
+                idea.append([
+                    i.name, i.description
+                ])
+            
 
-        return render_template('index.html', surname=surname, name=name, id=user.id, post=post)
+        return render_template('index.html', surname=surname, name=name, id=user.id, 
+                                post=post, vacancy=vacancy, quiz=quiz, idea=idea)
 
     return render_template('login.html')
 
@@ -242,7 +275,10 @@ def add_post():
 def add_vacancy():
     if request.method == 'POST':
         user_id = session['usid']
-        probtype = request.form['probtype']
+        user_name = session['name']
+        user_surname = session['surname']
+        post_type = 2
+        problem_type = request.form.get('problemtype')
         description = request.form['description']
         href_vk = request.form['href_vk']
         href_telegram = request.form['href_telegram']
@@ -257,6 +293,9 @@ def add_vacancy():
 def add_quiz():
     if request.method == 'POST':
         user_id = session['usid']
+        user_name = session['name']
+        user_surname = session['surname']
+        post_type = 3
         name = request.form['name']
         description = request.form['description']
         href_quiz = request.form['href_quiz']
@@ -273,9 +312,12 @@ def add_quiz():
 def add_idea():
     if request.method == 'POST':
         user_id = session['usid']
-        prttype = request.form['prtype']
-        prsub = request.form['prsub']
-        probtype = request.form['probtype']
+        user_name = session['name']
+        user_surname = session['surname']
+        post_type = 4
+        project_type = request.form.get('type')
+        subject = request.form.get('subject')
+        problem_type = request.form.get('problemtype')
         name = request.form['name']
         description = request.form['description']
 
