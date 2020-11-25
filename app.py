@@ -224,28 +224,28 @@ def index():
         idea = []
         for i in all_posts:
             if i.post_type == 1:
-                if i.user_id != g.usid:
+                if i.user_id != user.id:
                     post.append([
                         i.user_name, i.user_surname, i.project_type, 
                         i.subject, i.problem_type, i.name, i.demands, i.description, 
                         i.href_vk, i.href_telegram, i.href_google
                     ])
             elif i.post_type == 2:
-                if i.user_id != g.usid:
+                if i.user_id != user.id:
                     vacancy.append([
                         i.user_name, i.user_surname, 
                         i.problem_type, i.description, 
                         i.href_vk, i.href_telegram, i.href_google
                     ])
             elif i.post_type == 3:
-                if i.user_id != g.usid:
+                if i.user_id != user.id:
                     quiz.append([
                         i.user_name, i.user_surname, 
                         i.name, i.description, 
                         i.href_vk, i.href_telegram, i.href_google, i.href_quiz
                     ])
             elif i.post_type == 4:
-                if i.user_id != g.usid:
+                if i.user_id != user.id:
                     idea.append([
                         i.user_name, i.user_surname, i.project_type, 
                         i.subject, i.problem_type, i.name, i.description, 
