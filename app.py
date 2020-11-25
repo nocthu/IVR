@@ -142,7 +142,7 @@ def dropsession():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if g.name and g.surname and g.usid:
-        all_posts = db.session.query(Posts)
+        all_posts = db.session.query(Posts).all()
         post = []
         for i in all_posts:
             post.append([
@@ -196,7 +196,7 @@ def index():
             session['surname'] = surname
             session['usid'] = user.id
 
-        all_posts = db.session.query(Posts)
+        all_posts = db.session.query(Posts).all()
         post = []
         for i in all_posts:
             post.append([
