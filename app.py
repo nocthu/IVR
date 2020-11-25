@@ -102,17 +102,17 @@ def index():
             password = request.form["password"]
 
             user = db.session.query(Users).filter(
-                Users.nickname == nickname).first()
+                Users.user_nickname == nickname).first()
             if user:
                 message = "Никнейм уже занят"
 
-            user = db.session.query(Users).filter(Users.email == email).first()
+            user = db.session.query(Users).filter(Users.user_email == email).first()
             if user:
                 message = "Почта уже занята"
 
-                new_user = Users(nickname, email, name, surname, group, password)
-                db.session.add(new_user)
-                db.session.commit()
+            new_user = Users(nickname, email, name, surname, group, password)
+            db.session.add(new_user)
+            db.session.commit()
 
         return render_template('index.html')
 
