@@ -219,6 +219,9 @@ def index():
 
         all_posts = db.session.query(Posts).all()
         post = []
+        vacancy = []
+        quiz = []
+        idea = []
         for i in all_posts:
             if i.post_type == 1:
                 if i.user_id != g.usid:
