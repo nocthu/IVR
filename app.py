@@ -38,24 +38,55 @@ class Posts(db.Model):  # бд постов
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
-    post_aim = db.Column(db.String)
-    post_type = db.Column(db.String)
-    post_name = db.Column(db.String)
-    post_required = db.Column(db.String)
-    post_purpose = db.Column(db.String)
-    post_author = db.Column(db.String)
-    post_contacts = db.Column(db.String)
-    post_date = db.Column(db.String)
+    user_name = db.Column(db.String)
+    user_surname = db.Column(db.String)
+    href_vk = db.Column(db.String)
+    href_telegram = db.Column(db.String)
+    href_google = db.Column(db.String)
+    post_type = db.Column(db.Integer) # для себя - 1, вакансия - 2, опрос - 3, идея - 4
+    project_type = db.Column(db.String) # тип ИВР
+    subject = db.Column(db.String) # предмет ИВР
+    problem_type = db.Column(db.String) # сфера поставленной задачи
+    name = db.Column(db.String)
+    demands = db.Column(db.String)
+    description = db.Column(db.String)
+    href_vk = db.Column(db.String)
+    href_telegram = db.Column(db.String)
+    href_google = db.Column(db.String)
+    href_quiz = db.Column(db.String)
+    date = db.Column(db.String)
 
-    def __init__(self, post_aim, post_type, post_name, post_required, post_purpose, post_author, post_contacts, post_date):
-        self.post_aim = post_aim
+    # post_aim = db.Column(db.String)
+    # post_type = db.Column(db.String)
+    # post_name = db.Column(db.String)
+    # post_required = db.Column(db.String)
+    # post_purpose = db.Column(db.String)
+    # post_author = db.Column(db.String)
+    # post_contacts = db.Column(db.String)
+    # post_date = db.Column(db.String)
+
+    def __init__(self, user_id, user_name, user_surname, href_vk, href_telegram, href_google, 
+                    post_type, project_type, subject, problem_type, name, demands, description, 
+                    href_vk, href_google, href_quiz, date):
+        self.user_id = user_id
+        self.user_name = user_name
+        self.user_surname = user_surname
+        self.href_vk = href_vk
+        self.href_telegram = href_telegram
+        self.href_google = href_google
         self.post_type = post_type
-        self.post_name = post_name
-        self.post_required = post_required
-        self.post_purpose = post_purpose
-        self.post_author = post_author
-        self.post_contacts = post_contacts
-        self.post_date = post_date
+        self.project_type = project_type
+        self.subject = subject
+        self.problem_type = problem_type
+        self.name = name
+        self.demands = demands
+        self.description = description
+        self.href_vk = href_vk
+        self.href_telegram = href_telegram
+        self.href_google = href_google
+        self.href_quiz = href_quiz
+        self.date = date
+
 
 
 class Users(db.Model):  # бд пользователей
@@ -82,7 +113,7 @@ class Users(db.Model):  # бд пользователей
 
 
 app.config['SECRET_KEY'] = 'SECRET_KEY'
-
+# xR"V\c5%*c^raLV{j@5BD??".\&Fe+
 
 def main():
     app.run()
