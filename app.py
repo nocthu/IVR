@@ -178,7 +178,7 @@ def add_post():
         href_telegram = request.form['href_telegram']
         href_google = request.form['href_google']
 
-        return render_template('index.html')
+        return redirect(url_for('index'))
 
     return render_template('add_post.html')
 
@@ -193,7 +193,7 @@ def add_vacancy():
         href_telegram = request.form['href_telegram']
         href_google = request.form['href_google']
 
-        return render_template('index.html')
+        return redirect(url_for('index'))
 
     return render_template('add_vacancy.html')
 
@@ -209,7 +209,7 @@ def add_quiz():
         href_telegram = request.form['href_telegram']
         href_google = request.form['href_google']
         
-        return render_template('index.html')
+        return redirect(url_for('index'))
 
     return render_template('add_quiz.html')
 
@@ -224,16 +224,11 @@ def add_idea():
         name = request.form['name']
         description = request.form['description']
 
-        return render_template('index.html')
+        return redirect(url_for('index'))
 
     return render_template('add_idea.html')
 
 
 if __name__ == '__main__':
-
-    # posts = Posts()
-    # posts.init_table()
-    # users = Users()
-    # users.init_table()
 
     main()
