@@ -85,8 +85,8 @@ def index():
             nickname = request.form["nickname"]
             password = request.form["password"]
 
-            user = db.session.query(Users).filter(Users.nickname == nickname,
-                                                  Users.password == password).first()
+            user = db.session.query(Users).filter(Users.user_nickname == nickname,
+                                                  Users.user_password == password).first()
             if user:
                 name = user.name
                 surname = user.name
