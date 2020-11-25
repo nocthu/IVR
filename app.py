@@ -92,27 +92,31 @@ def main():
 def before_request():
     g.name = None
     g.surname = None
+    g.id = None
 
     if 'name' in session and 'surname' in session:
         g.name = session['name']
         g.surname = session['surname']
+        g.id = session['id']
 
 
 @app.route('/dropsession')
 def dropsession():
     session.pop('name', None)
     session.pop('surname', None)
+    session.pop('id', None)
     return redirect(url_for('index'))
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if g.name and g.surname:
-        return render_template('index.html', name=session['name'], surname=session['surname'])
+        return render_template('index.html', name=session['name'], surname=session['surname'], id=session['id'])
 
     if request.method == 'POST':
         session.pop('name', None)
         session.pop('surname', None)
+        session.pop('id', None)
 
         if request.form["btn"] == "Войти":
             nickname = request.form["nickname"]
@@ -128,6 +132,7 @@ def index():
 
             session['name'] = name
             session['surname'] = surname
+            session['id'] = user.id
 
         elif request.form["btn"] == "Зарегистрироваться":
             nickname = request.form["nickname"]
@@ -152,6 +157,7 @@ def index():
 
             session['name'] = name
             session['surname'] = surname
+            session['id'] = user.id
 
         return render_template('index.html', surname=surname, name=name, id=user.id)
 
@@ -161,6 +167,16 @@ def index():
 @app.route('/add_post', methods=['GET', 'POST'])
 def add_post():
     if request.method == 'POST':
+        user_id = session['id']
+        prttype = request.form['prtype']
+        prsub = request.form['prsub']
+        probtype = request.form['probtype']
+        name = request.form['name']
+        demands = request.form['demands']
+        description = request.form['description']
+        href_vk = request.form['href_vk']
+        href_telegram = request.form['href_telegram']
+        href_google = request.form['href_google']
 
         return render_template('index.html')
 
@@ -170,6 +186,12 @@ def add_post():
 @app.route('/add_vacancy', methods=['GET', 'POST'])
 def add_vacancy():
     if request.method == 'POST':
+        user_id = session['id']
+        probtype = request.form['probtype']
+        description = request.form['description']
+        href_vk = request.form['href_vk']
+        href_telegram = request.form['href_telegram']
+        href_google = request.form['href_google']
 
         return render_template('index.html')
 
@@ -179,7 +201,14 @@ def add_vacancy():
 @app.route('/add_quiz', methods=['GET', 'POST'])
 def add_quiz():
     if request.method == 'POST':
-
+        user_id = session['id']
+        name = request.form['name']
+        description = request.form['description']
+        href_quiz = request.form['href_quiz']
+        href_vk = request.form['href_vk']
+        href_telegram = request.form['href_telegram']
+        href_google = request.form['href_google']
+        
         return render_template('index.html')
 
     return render_template('add_quiz.html')
@@ -188,6 +217,12 @@ def add_quiz():
 @app.route('/add_idea', methods=['GET', 'POST'])
 def add_idea():
     if request.method == 'POST':
+        user_id = session['id']
+        prttype = request.form['prtype']
+        prsub = request.form['prsub']
+        probtype = request.form['probtype']
+        name = request.form['name']
+        description = request.form['description']
 
         return render_template('index.html')
 
