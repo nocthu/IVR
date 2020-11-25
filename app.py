@@ -168,7 +168,7 @@ def index():
 def add_post():
     if request.method == 'POST':
         user_id = session['usid']
-        # prttype = request.form['prtype']
+        prttype = request.form['prtype']
         # prsub = request.form['prsub']
         # probtype = request.form['probtype']
         # name = request.form['name']
