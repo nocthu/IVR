@@ -111,20 +111,20 @@ def index():
             group = request.form["group"]
             password = request.form["password"]
 
-            user = db.session.query(Users).filter(
+            oluser = db.session.query(Users).filter(
                 Users.user_nickname == nickname).first()
-            if user:
+            if oluser:
                 message = "Никнейм уже занят"
 
-            user = db.session.query(Users).filter(Users.user_email == email).first()
-            if user:
+            oluser = db.session.query(Users).filter(Users.user_email == email).first()
+            if oluser:
                 message = "Почта уже занята"
 
-            new_user = Users(nickname, email, name, surname, group, password)
-            db.session.add(new_user)
+            user = Users(nickname, email, name, surname, group, password)
+            db.session.add(user)
             db.session.commit()
 
-        return render_template('index.html')
+        return render_template('index.html', user=user)
 
     return render_template('login.html')
 
