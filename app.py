@@ -92,31 +92,31 @@ def main():
 def before_request():
     g.name = None
     g.surname = None
-    g.id = None
+    g.usid = None
 
-    if 'name' in session and 'surname' in session:
+    if 'name' in session and 'surname' in session and 'usid' in session:
         g.name = session['name']
         g.surname = session['surname']
-        g.id = session['id']
+        g.usid = session['usid']
 
 
 @app.route('/dropsession')
 def dropsession():
     session.pop('name', None)
     session.pop('surname', None)
-    session.pop('id', None)
+    session.pop('usid', None)
     return redirect(url_for('index'))
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if g.name and g.surname and g.id:
+    if g.name and g.surname and g.usid:
         return render_template('index.html', name=session['name'], surname=session['surname'], id=session['id'])
 
     if request.method == 'POST':
         session.pop('name', None)
         session.pop('surname', None)
-        session.pop('id', None)
+        session.pop('usid', None)
 
         if request.form["btn"] == "Войти":
             nickname = request.form["nickname"]
@@ -132,7 +132,7 @@ def index():
 
             session['name'] = name
             session['surname'] = surname
-            session['id'] = user.id
+            session['usid'] = user.id
 
         elif request.form["btn"] == "Зарегистрироваться":
             nickname = request.form["nickname"]
@@ -157,7 +157,7 @@ def index():
 
             session['name'] = name
             session['surname'] = surname
-            session['id'] = user.id
+            session['usid'] = user.id
 
         return render_template('index.html', surname=surname, name=name, id=user.id)
 
@@ -167,7 +167,7 @@ def index():
 @app.route('/add_post', methods=['GET', 'POST'])
 def add_post():
     if request.method == 'POST':
-        user_id = session['id']
+        user_id = session['usid']
         prttype = request.form['prtype']
         prsub = request.form['prsub']
         probtype = request.form['probtype']
@@ -186,7 +186,7 @@ def add_post():
 @app.route('/add_vacancy', methods=['GET', 'POST'])
 def add_vacancy():
     if request.method == 'POST':
-        user_id = session['id']
+        user_id = session['usid']
         probtype = request.form['probtype']
         description = request.form['description']
         href_vk = request.form['href_vk']
@@ -201,7 +201,7 @@ def add_vacancy():
 @app.route('/add_quiz', methods=['GET', 'POST'])
 def add_quiz():
     if request.method == 'POST':
-        user_id = session['id']
+        user_id = session['usid']
         name = request.form['name']
         description = request.form['description']
         href_quiz = request.form['href_quiz']
@@ -217,7 +217,7 @@ def add_quiz():
 @app.route('/add_idea', methods=['GET', 'POST'])
 def add_idea():
     if request.method == 'POST':
-        user_id = session['id']
+        user_id = session['usid']
         prttype = request.form['prtype']
         prsub = request.form['prsub']
         probtype = request.form['probtype']
