@@ -98,6 +98,13 @@ def before_request():
         g.surname = session['surname']
 
 
+@app.route('/dropsession')
+def dropsession():
+    session.pop('name', None)
+    session.pop('surname', None)
+    return redirect(url_for('/'))
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if g.name and g.surname:
