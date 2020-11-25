@@ -14,9 +14,9 @@ app.debug = False
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://pgyrprfvmjxjqm:ae7dcfa8630cadc1b8263d59077593207b55dbdb8fddbf0a9bc8d094893fc63f@ec2-52-206-44-27.compute-1.amazonaws.com:5432/d4q64kbe6gfnoo'
 SQLALCHEMY_DATABASE_URI = 'postgres://pgyrprfvmjxjqm:ae7dcfa8630cadc1b8263d59077593207b55dbdb8fddbf0a9bc8d094893fc63f@ec2-52-206-44-27.compute-1.amazonaws.com:5432/d4q64kbe6gfnoo'
 
-SQLALCHEMY_BINDS = {
-    'db1': SQLALCHEMY_DATABASE_URI,
-    'db2': 'postgres://lsxgpxkbhcmidj:ede832ca91fa457fa7837b389bb07d9b03642708e47ef57de7d446f42ce35c4e@ec2-34-202-65-210.compute-1.amazonaws.com:5432/dc4v5190j2lbd0'
+app.config['SQLALCHEMY_BINDS'] = {
+    'users': SQLALCHEMY_DATABASE_URI,
+    'posts': 'postgres://lsxgpxkbhcmidj:ede832ca91fa457fa7837b389bb07d9b03642708e47ef57de7d446f42ce35c4e@ec2-34-202-65-210.compute-1.amazonaws.com:5432/dc4v5190j2lbd0'
 }
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -34,7 +34,7 @@ census = Table('users', metadata, autoload=True)
 
 class Posts(db.Model):  # бд постов
     __tablename__ = 'posts'
-    __bind_key__ = 'db2'
+    __bind_key__ = 'posts'
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
@@ -60,7 +60,7 @@ class Posts(db.Model):  # бд постов
 
 class Users(db.Model):  # бд пользователей
     __tablename__ = 'users'
-    __bind_key__ = 'db1'
+    __bind_key__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
     user_nickname = db.Column(db.String, unique=True)
