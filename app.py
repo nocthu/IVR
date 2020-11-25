@@ -102,7 +102,7 @@ def before_request():
 def dropsession():
     session.pop('name', None)
     session.pop('surname', None)
-    return redirect(url_for('/'))
+    return redirect(url_for('index'))
 
 
 @app.route('/', methods=['GET', 'POST'])
