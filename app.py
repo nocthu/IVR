@@ -172,7 +172,8 @@ def add_post():
         user_surname = session['surname']
         # prtype = request.form["type"]
         # prsub = request.form["subject"]
-        probtype = request.form["problemtype"]
+        # probtype = request.form["problemtype"]
+        probtype = request.form.get('problemtype')
         name = request.form["name"]
         demands = request.form["demands"]
         description = request.form["description"]
