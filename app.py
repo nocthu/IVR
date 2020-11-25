@@ -142,7 +142,13 @@ def dropsession():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if g.name and g.surname and g.usid:
-        return render_template('index.html', name=session['name'], surname=session['surname'], id=session['usid'])
+        all_posts = db.session.query(Posts)
+        post = []
+        for i in all_posts:
+            post.append([
+                i.name, i.description
+            ])
+        return render_template('index.html', name=session['name'], surname=session['surname'], id=session['usid'], post=post)
 
     if request.method == 'POST':
         session.pop('name', None)
@@ -190,7 +196,14 @@ def index():
             session['surname'] = surname
             session['usid'] = user.id
 
-        return render_template('index.html', surname=surname, name=name, id=user.id)
+        all_posts = db.session.query(Posts)
+        post = []
+        for i in all_posts:
+            post.append([
+                i.name, i.description
+            ])
+
+        return render_template('index.html', surname=surname, name=name, id=user.id, post=post)
 
     return render_template('login.html')
 

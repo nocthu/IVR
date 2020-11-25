@@ -86,6 +86,13 @@
 
             <section class="posts">
 
+                {% for p in post %}
+                <div class="post">
+                    <div class="postname">{{ p[0] }}</div>
+                    <div class="postrequied">{{ p[1] }}</div>
+                </div>
+                {% endfor %}
+
                 <div class="post forme">
                     <div class="posttype">Дизайн</div>
                     <div class="postname"><h3>Дизайн для сайта ИВР</h3></div>
