@@ -111,7 +111,7 @@ def dropsession():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if g.name and g.surname and g.usid:
-        return render_template('index.html', name=session['name'], surname=session['surname'], id=session['id'])
+        return render_template('index.html', name=session['name'], surname=session['surname'], id=session['usid'])
 
     if request.method == 'POST':
         session.pop('name', None)
