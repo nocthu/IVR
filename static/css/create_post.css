@@ -16,6 +16,11 @@ textarea {
   font-family: "Poppins", sans-serif;
 }
 
+
+h2 {
+  color: #444;
+}
+
 input,
 select,
 textarea {

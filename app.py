@@ -22,8 +22,8 @@ connection = engine.connect()
 metadata = MetaData(engine)
 
 
-# # census = Table('posts', metadata, autoload=True)
-# census = Table('users', metadata, autoload=True)
+# census = Table('posts', metadata, autoload=True)
+census = Table('users', metadata, autoload=True)
 
 
 # class Posts(db.Model):  # бд постов
@@ -85,34 +85,34 @@ def index():
             nickname = request.form["nickname"]
             password = request.form["password"]
 
-            # user = db.session.query(Users).filter(Users.nickname == nickname,
-            #                                       Users.password == password).first()
-            # if user:
-            #     name = user.name
-            #     surname = user.name
-            # else:
-            #     message = "Неккоректные данные"
+            user = db.session.query(Users).filter(Users.nickname == nickname,
+                                                  Users.password == password).first()
+            if user:
+                name = user.name
+                surname = user.name
+            else:
+                message = "Неккоректные данные"
 
         elif request.form["btn"] == "Зарегистрироваться":
             nickname = request.form["nickname"]
             email = request.form["email"]
             name = request.form["name"]
             surname = request.form["surname"]
-            # group = request.form["group"]
+            group = request.form["group"]
             password = request.form["password"]
 
-            # user = db.session.query(Users).filter(
-            #     Users.nickname == nickname).first()
-            # if user:
-            #     message = "Никнейм уже занят"
+            user = db.session.query(Users).filter(
+                Users.nickname == nickname).first()
+            if user:
+                message = "Никнейм уже занят"
 
-            # user = db.session.query(Users).filter(Users.email == email).first()
-            # if user:
-            #     message = "Почта уже занята"
+            user = db.session.query(Users).filter(Users.email == email).first()
+            if user:
+                message = "Почта уже занята"
 
-                # new_user = Users(nickname, email, name, surname, password)
-                # db.session.add(new_course)
-                # db.session.commit()
+                new_user = Users(nickname, email, name, surname, group, password)
+                db.session.add(new_user)
+                db.session.commit()
 
         return render_template('index.html')
 

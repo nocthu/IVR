@@ -149,7 +149,12 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #f3c86c;
+    background-color: #333;
+  /* background-color: #f3c86c; */
+}
+
+.b-enter:hover {
+    color: #f5ba3d;
 }
 
 .panels-container {
