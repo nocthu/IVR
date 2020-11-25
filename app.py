@@ -11,7 +11,13 @@ app = Flask(__name__)
 #     app.config['SQLALCHEMY_DATABASE_URI'] = ''
 # # else:
 app.debug = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://pgyrprfvmjxjqm:ae7dcfa8630cadc1b8263d59077593207b55dbdb8fddbf0a9bc8d094893fc63f@ec2-52-206-44-27.compute-1.amazonaws.com:5432/d4q64kbe6gfnoo'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://pgyrprfvmjxjqm:ae7dcfa8630cadc1b8263d59077593207b55dbdb8fddbf0a9bc8d094893fc63f@ec2-52-206-44-27.compute-1.amazonaws.com:5432/d4q64kbe6gfnoo'
+SQLALCHEMY_DATABASE_URI = 'postgres://pgyrprfvmjxjqm:ae7dcfa8630cadc1b8263d59077593207b55dbdb8fddbf0a9bc8d094893fc63f@ec2-52-206-44-27.compute-1.amazonaws.com:5432/d4q64kbe6gfnoo'
+
+SQLALCHEMY_BINDS = {
+    'db1': SQLALCHEMY_DATABASE_URI,
+    'db2': 'postgres://lsxgpxkbhcmidj:ede832ca91fa457fa7837b389bb07d9b03642708e47ef57de7d446f42ce35c4e@ec2-34-202-65-210.compute-1.amazonaws.com:5432/dc4v5190j2lbd0'
+}
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -26,32 +32,36 @@ metadata = MetaData(engine)
 census = Table('users', metadata, autoload=True)
 
 
-# class Posts(db.Model):  # бд постов
-#     __tablename__ = 'posts'
-#     id = db.Column(db.Integer, primary_key=True)
-#     user_id = db.Column(db.Integer)
-#     post_aim = db.Column(db.String)
-#     post_type = db.Column(db.String)
-#     post_name = db.Column(db.String)
-#     post_required = db.Column(db.String)
-#     post_purpose = db.Column(db.String)
-#     post_author = db.Column(db.String)
-#     post_contacts = db.Column(db.String)
-#     post_date = db.Column(db.String)
+class Posts(db.Model):  # бд постов
+    __tablename__ = 'posts'
+    __bind_key__ = 'db2'
 
-#     def __init__(self, post_aim, post_type, post_name, post_required, post_purpose, post_author, post_contacts, post_date):
-#         self.post_aim = post_aim
-#         self.post_type = post_type
-#         self.post_name = post_name
-#         self.post_required = post_required
-#         self.post_purpose = post_purpose
-#         self.post_author = post_author
-#         self.post_contacts = post_contacts
-#         self.post_date = post_date
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    post_aim = db.Column(db.String)
+    post_type = db.Column(db.String)
+    post_name = db.Column(db.String)
+    post_required = db.Column(db.String)
+    post_purpose = db.Column(db.String)
+    post_author = db.Column(db.String)
+    post_contacts = db.Column(db.String)
+    post_date = db.Column(db.String)
+
+    def __init__(self, post_aim, post_type, post_name, post_required, post_purpose, post_author, post_contacts, post_date):
+        self.post_aim = post_aim
+        self.post_type = post_type
+        self.post_name = post_name
+        self.post_required = post_required
+        self.post_purpose = post_purpose
+        self.post_author = post_author
+        self.post_contacts = post_contacts
+        self.post_date = post_date
 
 
 class Users(db.Model):  # бд пользователей
     __tablename__ = 'users'
+    __bind_key__ = 'db1'
+
     id = db.Column(db.Integer, primary_key=True)
     user_nickname = db.Column(db.String, unique=True)
     user_email = db.Column(db.String, unique=True)
