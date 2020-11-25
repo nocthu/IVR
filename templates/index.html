@@ -86,35 +86,33 @@
 
             <section class="posts">
 
-                post[0]
-
                 {% for p in post %}
 
                     <div class="post forme">
 
-                        <div class="posttype">p[3]</div>
+                        <div class="posttype">{{ p[3] }}</div>
 
-                        <div class="postname"><h3>p[5]</h3></div>
+                        <div class="postname"><h3>{{ p[5] }}</h3></div>
 
                         <hr>
 
                         <div class="postrequied">
-                            <p>p[7]</p>
+                            <p>{{ p[7] }}</p>
                         </div>
 
                         <hr>
 
-                        <div class="postpurpose">p[6]</div>
+                        <div class="postpurpose">{{ p[6] }}</div>
 
                         <hr>
 
-                        <div class="postauthor">p[1] p[0] (?)класс</div>
+                        <div class="postauthor">{{ p[1] }} {{ p[0] }} (?)класс</div>
 
                         <div class="postcontacts">
 
                             <div class="email">
                                 <i class="fas fa-envelope"></i>
-                                p[11]
+                                {{ p[11] }}
                             </div>
 
                             <a href="{{ p[9] }}">
@@ -137,18 +135,18 @@
                         
                         <div class="posttype">Вакансия</div>
 
-                        <div class="postname"><h3>v[2]</h3></div>
+                        <div class="postname"><h3>{{ v[2] }}</h3></div>
                         <hr>
                         <div class="postrequied">
                             <p>v[3]</p>
                         </div>
                         <hr>
-                        <div class="postauthor">v[1] v[0] (?)класс</div>
+                        <div class="postauthor">{{ v[1] }} {{ v[0] }} (?)класс</div>
                         <div class="postcontacts">
 
                             <div class="email">
                                 <i class="fas fa-envelope"></i>
-                                v[6]
+                                {{ v[6] }}
                             </div>
 
                             <a href="{{ v[4] }}">
@@ -170,23 +168,23 @@
                         
                         <div class="posttype">Опрос</div>
 
-                        <div class="postname"><h3>p[2]</h3></div>
+                        <div class="postname"><h3>{{ p[2] }}</h3></div>
 
                         <hr>
 
                         <div class="postrequied">
-                            <p>p[3]</p>
+                            <p>{{ p[3] }}</p>
                         </div>
 
                         <hr>
 
-                        <div class="postauthor">q[1] q[0] (?)класс</div>
+                        <div class="postauthor">{{ q[1] }} {{ q[0] }} (?)класс</div>
 
                         <div class="postcontacts">
 
                             <div class="email">
                                 <i class="fas fa-envelope"></i>
-                                q[6]
+                                {{ q[6] }}
                             </div>
 
                             <a href="{{ q[4] }}">
@@ -208,12 +206,12 @@
 
                         <div class="posttype">Идея</div>
 
-                        <div class="postname"><h3>i[2]</h3></div>
+                        <div class="postname"><h3>{{ i[2] }}</h3></div>
 
                         <hr>
 
                         <div class="postrequied">
-                            <p>i[3]</p>
+                            <p>{{ i[3] }}</p>
                         </div>
 
                     </div>
