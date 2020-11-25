@@ -16,7 +16,7 @@ SQLALCHEMY_DATABASE_URI = 'postgres://pgyrprfvmjxjqm:ae7dcfa8630cadc1b8263d59077
 
 app.config['SQLALCHEMY_BINDS'] = {
     'users': SQLALCHEMY_DATABASE_URI,
-    'posts': 'postgres://lsxgpxkbhcmidj:ede832ca91fa457fa7837b389bb07d9b03642708e47ef57de7d446f42ce35c4e@ec2-34-202-65-210.compute-1.amazonaws.com:5432/dc4v5190j2lbd0'
+    'posts': 'postgres://ibuxjgsxkmjzjj:47c35c8abfdf583d06ef30ced185a5a9f96a78b32f616569f8c5a410ea6f770a@ec2-3-224-38-18.compute-1.amazonaws.com:5432/d3ch1omoaa82f6'
 }
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
