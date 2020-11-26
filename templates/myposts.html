@@ -56,6 +56,10 @@
 
                     </div>
 
+                    <div class="">
+                        <a href="/delete/{{ p[11] }}" class="btn solid">Удалить</a>
+                    </div>
+
                 </div>
 
             {% endfor %}
@@ -88,6 +92,10 @@
                             <i class="fab fa-telegram-plane"></i>
                         </a>
 
+                    </div>
+
+                    <div class="">
+                        <a href="/delete/{{ v[7] }}" class="btn solid">Удалить</a>
                     </div>
                 </div>
 
@@ -126,6 +134,10 @@
                             <i class="fab fa-telegram-plane"></i>
                         </a>
 
+                        <div class="">
+                            <a href="/delete/{{ q[7] }}" class="btn solid">Удалить</a>
+                        </div>
+
                     </div>
 
                 </div>
@@ -145,12 +157,16 @@
                         <p>{{ i[3] }}</p>
                     </div>
 
+                    <div class="">
+                        <a href="/delete/{{ i[10] }}" class="btn solid">Удалить</a>
+                    </div>
+
                 </div>
             {% endfor %}
             
         </section>
 
-        <input type="submit" value="Удалить выбранные посты" name="btn" class="del-b">
+        <!-- <input type="submit" value="Удалить выбранные посты" name="btn" class="del-b"> -->
     </form>
 
 </body>

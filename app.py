@@ -285,28 +285,38 @@ def myposts():
             post.append([
                 i.user_name, i.user_surname, i.project_type, 
                 i.subject, i.problem_type, i.name, i.demands, i.description, 
-                i.href_vk, i.href_telegram, i.href_google
+                i.href_vk, i.href_telegram, i.href_google, i.id
             ])
         elif i.post_type == 2:
             vacancy.append([
                 i.user_name, i.user_surname, 
                 i.problem_type, i.description, 
-                i.href_vk, i.href_telegram, i.href_google
+                i.href_vk, i.href_telegram, i.href_google, i.id
             ])
         elif i.post_type == 3:
             quiz.append([
                 i.user_name, i.user_surname, 
                 i.name, i.description, 
-                i.href_vk, i.href_telegram, i.href_google, i.href_quiz
+                i.href_vk, i.href_telegram, i.href_google, i.href_quiz, i.id
             ])
         elif i.post_type == 4:
             idea.append([
                 i.user_name, i.user_surname, i.project_type, 
                 i.subject, i.problem_type, i.name, i.description, 
-                i.href_vk, i.href_telegram, i.href_google
+                i.href_vk, i.href_telegram, i.href_google, i.id
             ])
 
     return render_template('myposts.html', post=post, vacancy=vacancy, quiz=quiz, idea=idea)
+
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    post_delete = db.session.query(Posts).filter(Posts.id==id).first()
+
+    db.session.delete(post_delete)
+    db.session.commit()
+
+    return redirect(url_for('myposts'))
 
 
 @app.route('/add_post', methods=['GET', 'POST'])
