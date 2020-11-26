@@ -138,7 +138,7 @@
                         <div class="postname"><h3>{{ v[2] }}</h3></div>
                         <hr>
                         <div class="postrequied">
-                            <p>v[3]</p>
+                            <p>{{ v[3] }}</p>
                         </div>
                         <hr>
                         <div class="postauthor">{{ v[1] }} {{ v[0] }} (?)класс</div>
@@ -153,9 +153,10 @@
                                 <i class="fab fa-vk"></i>
                             </a>
 
-                            <a href="{{ v[5] }}">
+                            <div class="email">
                                 <i class="fab fa-telegram-plane"></i>
-                            </a>
+                                {{ v[5] }}
+                            </div>
 
                         </div>
                     </div>
