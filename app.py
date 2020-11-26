@@ -168,7 +168,7 @@ def index():
             quiz.reverse()
             idea.reverse()
             
-        return render_template('index.html', name=session['name'], surname=session['surname'], id=session['usid'], 
+        return render_template('index.html', name=session['name'], surname=session['surname'], 
                                 post=post, vacancy=vacancy, quiz=quiz, idea=idea)
 
     if request.method == 'POST':
@@ -258,7 +258,7 @@ def index():
             idea.reverse()
             
 
-        return render_template('index.html', surname=surname, name=name, id=user.id, 
+        return render_template('index.html', surname=surname, name=name, 
                                 post=post, vacancy=vacancy, quiz=quiz, idea=idea)
 
     return render_template('login.html')
