@@ -10,6 +10,10 @@ section {
     /* overflow-y: scroll; */
 }
 
+section .post {
+    width: 90%;
+}
+
 .del-b {
     width: 250px;
     background-color: #fff;
