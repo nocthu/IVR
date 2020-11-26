@@ -225,26 +225,6 @@ body {
     cursor: pointer;
 } 
 
-.del-b {
-    width: 250px;
-    background-color: #fff;
-    border: none;
-    outline: none;
-    height: 49px;
-    border-radius: 49px;
-    color: #333;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin: 10px 0;
-    cursor: pointer;
-    transition: 0.5s;
-}
-  
-.del-b:hover {
-    background-color: #333;
-    color: #f5ba3d;
-}
-
 @media (max-width: 2500px) {
     .post {
         width: 45%;
