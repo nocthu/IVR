@@ -320,7 +320,7 @@ def delete(id):
 
 
 @app.route('/update/post/<int:id>', methods=['GET', 'POST'])
-def update(id):
+def update_post(id):
     post_update = db.session.query(Posts).filter(Posts.id==id).first()
     if request.method == 'POST':
         # post_update = request.form['name']
@@ -331,7 +331,7 @@ def update(id):
 
 
 @app.route('/update/vacancy/<int:id>', methods=['GET', 'POST'])
-def update(id):
+def update_vacancy(id):
     post_update = db.session.query(Posts).filter(Posts.id==id).first()
     if request.method == 'POST':
         post_update = request.form['name']
@@ -342,7 +342,7 @@ def update(id):
 
 
 @app.route('/update/quiz/<int:id>', methods=['GET', 'POST'])
-def update(id):
+def update_quiz(id):
     post_update = db.session.query(Posts).filter(Posts.id==id).first()
     if request.method == 'POST':
         post_update = request.form['name']
@@ -353,7 +353,7 @@ def update(id):
 
 
 @app.route('/update/idea/<int:id>', methods=['GET', 'POST'])
-def update(id):
+def update_idea(id):
     post_update = db.session.query(Posts).filter(Posts.id==id).first()
     if request.method == 'POST':
         post_update = request.form['name']
