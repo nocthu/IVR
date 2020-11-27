@@ -26,7 +26,7 @@ section .post {
     background-color: #fff;
     border: none;
     outline: none;
-    height: 49px;
+    height: auto;
     border-radius: 49px;
     color: #333;
     text-transform: uppercase;
