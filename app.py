@@ -264,14 +264,13 @@ def index():
     return render_template('login.html')
 
 
-
-@app.route('/myposts', methods=['GET', 'POST'])
+@app.route('/myposts', methods=['GET'])
 def myposts():
-    if request.method == 'POST':
+    # if request.method == 'POST':
 
 
 
-        return redirect(url_for('index'))
+    #     return redirect(url_for('index'))
 
     all_posts = db.session.query(Posts).filter(
                 Posts.user_id == g.usid
