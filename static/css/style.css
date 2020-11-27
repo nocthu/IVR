@@ -225,6 +225,16 @@ body {
     cursor: pointer;
 } 
 
+.h-back {
+    margin-left: 1em;
+}
+
+.hr-back {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
 @media (max-width: 2500px) {
     .post {
         width: 45%;
