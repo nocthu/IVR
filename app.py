@@ -319,6 +319,50 @@ def delete(id):
     return redirect(url_for('myposts'))
 
 
+@app.route('/update/post/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    post_update = db.session.query(Posts).filter(Posts.id==id).first()
+    if request.method == 'POST':
+        # post_update = request.form['name']
+        # db.session.commit()
+
+        return redirect(url_for('myposts'))
+    return render_template('update_post.html', post_update=post_update)
+
+
+@app.route('/update/vacancy/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    post_update = db.session.query(Posts).filter(Posts.id==id).first()
+    if request.method == 'POST':
+        post_update = request.form['name']
+        db.session.commit()
+
+        return redirect(url_for('myposts'))
+    return render_template('update_vacancy.html', post_update=post_update)
+
+
+@app.route('/update/quiz/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    post_update = db.session.query(Posts).filter(Posts.id==id).first()
+    if request.method == 'POST':
+        post_update = request.form['name']
+        db.session.commit()
+
+        return redirect(url_for('myposts'))
+    return render_template('update_quiz.html', post_update=post_update)
+
+
+@app.route('/update/idea/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    post_update = db.session.query(Posts).filter(Posts.id==id).first()
+    if request.method == 'POST':
+        post_update = request.form['name']
+        db.session.commit()
+
+        return redirect(url_for('myposts'))
+    return render_template('update_idea.html', post_update=post_update)
+
+
 @app.route('/add_post', methods=['GET', 'POST'])
 def add_post():
     if request.method == 'POST':
