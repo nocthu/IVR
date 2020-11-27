@@ -12,23 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- <a href="#" class="dob">ХелпИВР</a> -->
-    <!-- <nav class="nav">
 
-        <div class="account-field">
-            <div class="account-photo"></div>
-            <div class="account-name">Евсеев Григорий</div>
-            <div class="links">
-                <div class="account-more"><a href="#">Подробнее</a></div>
-                <div class="account-logout"><a href="#">Выйти</a></div>
-            </div>
-        </div>
-
-    </nav> -->
-    
     <form action="" method="post" >
         <div class="create-field">
-            <h2>Добавить идею</h2>
+            <h2>Обновить идею</h2>
 
             <div class="cnt">
                 <select name="Тип ИВР" id="" class="prtype" name="type">
@@ -61,16 +48,16 @@
             </div>
 
             <div class="cnt">
-                <input type="text" name="name" placeholder="Название">
+                <input type="text" name="name" placeholder="Название" value="{{ post_update.name }}">
             </div>
 
             <div class="cnt">
-                <textarea name="description" placeholder="Описание идеи" id="" cols="40" rows="2"></textarea>
+                <textarea name="description" placeholder="Описание идеи" id="" cols="40" rows="2">{{ post_update.description }}</textarea>
             </div>
             
             
             <div class="submit">
-                <input type="submit" value="Добавить" name="btn" class="btn solid b-enter">
+                <input type="submit" value="Обновить" name="btn" class="btn solid b-enter">
             </div>
         </div>
     </form>

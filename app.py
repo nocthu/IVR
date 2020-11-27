@@ -324,7 +324,17 @@ def update_post(id):
     post_update = db.session.query(Posts).filter(Posts.id==id).first()
     if request.method == 'POST':
         # post_update = request.form['name']
-        # db.session.commit()
+
+        post_update.project_type = request.form.get('type')
+        post_update.subject = request.form.get('subject')
+        post_update.problem_type = request.form.get('problemtype')
+        post_update.name = request.form["name"]
+        post_update.demands = request.form["demands"]
+        post_update.description = request.form["description"]
+        post_update.href_vk = request.form["href_vk"]
+        post_update.href_telegram = request.form["href_telegram"]
+        post_update.href_google = request.form["href_google"]
+        db.session.commit()
 
         return redirect(url_for('myposts'))
     return render_template('update_post.html', post_update=post_update)
@@ -334,7 +344,13 @@ def update_post(id):
 def update_vacancy(id):
     post_update = db.session.query(Posts).filter(Posts.id==id).first()
     if request.method == 'POST':
-        post_update = request.form['name']
+        # post_update = request.form['name']
+
+        post_update.problem_type = request.form.get('problemtype')
+        post_update.description = request.form['description']
+        post_update.href_vk = request.form['href_vk']
+        post_update.href_telegram = request.form['href_telegram']
+        post_update.href_google = request.form['href_google']
         db.session.commit()
 
         return redirect(url_for('myposts'))
@@ -345,7 +361,14 @@ def update_vacancy(id):
 def update_quiz(id):
     post_update = db.session.query(Posts).filter(Posts.id==id).first()
     if request.method == 'POST':
-        post_update = request.form['name']
+        # post_update = request.form['name']
+
+        post_update.name = request.form['name']
+        post_update.description = request.form['description']
+        post_update.href_quiz = request.form['href_quiz']
+        post_update.href_vk = request.form['href_vk']
+        post_update.href_telegram = request.form['href_telegram']
+        post_update.href_google = request.form['href_google']
         db.session.commit()
 
         return redirect(url_for('myposts'))
@@ -356,7 +379,14 @@ def update_quiz(id):
 def update_idea(id):
     post_update = db.session.query(Posts).filter(Posts.id==id).first()
     if request.method == 'POST':
-        post_update = request.form['name']
+        # post_update = request.form['name']
+
+        post_update.project_type = request.form.get('type')
+        post_update.subject = request.form.get('subject')
+        post_update.problem_type = request.form.get('problemtype')
+        post_update.name = request.form['name']
+        post_update.description = request.form['description']
+
         db.session.commit()
 
         return redirect(url_for('myposts'))

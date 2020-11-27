@@ -15,7 +15,7 @@
     
     <form action="" method="post" >
         <div class="create-field">
-            <h2>Добавить вакансию</h2>
+            <h2>Обновить вакансию</h2>
             
             <div class="cnt">
                 <select id="" class="probtype" name="problemtype"> 
@@ -31,27 +31,27 @@
             </div>
             
             <div class="cnt">
-                <textarea name="description" placeholder="Описание Ваших способностей" id="" cols="40" rows="10"></textarea>
+                <textarea name="description" placeholder="Описание Ваших способностей" id="" cols="40" rows="10">{{ post_update.description }}</textarea>
             </div>
             
             <div class="cnt">
                 <i class="fab fa-vk"></i>
-                <input type="text" placeholder="ссылка VK"  name="href_vk">
+                <input type="text" placeholder="ссылка VK"  name="href_vk" value="{{ post_update.href_vk }}">
             </div>
 
             <div class="cnt">
                 <i class="fab fa-telegram-plane"></i>
-                <input type="text" placeholder="ссылка Telegram" name="href_telegram">
+                <input type="text" placeholder="ссылка Telegram" name="href_telegram" value="{{ post_update.href_telegram }}">
             </div>
 
             <div class="cnt">
                 <i class="fas fa-at"></i>
-                <input type="text" placeholder="аккаунт Gmail" name="href_google">
+                <input type="text" placeholder="аккаунт Gmail" name="href_google" value="{{ post_update.href_google }}">
             </div>
 
             
             <div class="submit">
-                <input type="submit" value="Добавить" name="btn" class="btn solid b-enter">
+                <input type="submit" value="Обновить" name="btn" class="btn solid b-enter">
             </div>
         </div>
     </form>
