@@ -89,6 +89,7 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     color: #333;
+    font-weight: bolder;
 }
 
 .logouth:hover {
