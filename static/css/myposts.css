@@ -36,6 +36,8 @@ section .post {
     transition: 0.5s;
     padding: 5px;
     text-decoration: none;
+    text-align: center;
+    background: #f5ba3d;
 }
   
 .myp-b:hover {
