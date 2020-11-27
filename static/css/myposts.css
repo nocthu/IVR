@@ -14,8 +14,15 @@ section .post {
     width: 90%;
 }
 
-.del-b {
-    width: 250px;
+.b {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.myp-b {
+    width: 40%;
     background-color: #fff;
     border: none;
     outline: none;
@@ -27,9 +34,11 @@ section .post {
     margin: 10px 0;
     cursor: pointer;
     transition: 0.5s;
+    padding: 5px;
+    text-decoration: none;
 }
   
-.del-b:hover {
+.myp-b:hover {
     background-color: #333;
     color: #f5ba3d;
 }
