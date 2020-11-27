@@ -84,6 +84,16 @@ body {
     display: flex;
     margin: 0.5em;
 }
+
+.logouth {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.logouth:hover {
+    color: #f5ba3d;
+}
 /* 
 .account-logout {
     margin-left: 1em;
