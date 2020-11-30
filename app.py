@@ -185,8 +185,10 @@ def index():
             if user:
                 name = user.user_name
                 surname = user.user_surname
+                return redirect(url_for('index'))
             else:
                 message = "Неккоректные данные"
+                return redirect(url_for('index'))
 
             session['name'] = name
             session['surname'] = surname
@@ -204,10 +206,12 @@ def index():
                 Users.user_nickname == nickname).first()
             if oluser:
                 message = "Никнейм уже занят"
+                return redirect(url_for('index'))
 
             oluser = db.session.query(Users).filter(Users.user_email == email).first()
             if oluser:
                 message = "Почта уже занята"
+                return redirect(url_for('index'))
 
             user = Users(nickname, email, name, surname, group, password)
             db.session.add(user)
