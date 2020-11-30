@@ -185,7 +185,6 @@ def index():
             if user:
                 name = user.user_name
                 surname = user.user_surname
-                return redirect(url_for('index'))
             else:
                 message = "Неккоректные данные"
                 return redirect(url_for('index'))
