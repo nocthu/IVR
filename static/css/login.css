@@ -194,6 +194,7 @@ form.sign-in-form {
   justify-content: space-around;
   text-align: center;
   z-index: 6;
+  margin-right: 15%;
 }
 
 .left-panel {
