@@ -312,6 +312,7 @@ form.sign-in-form {
     align-items: center;
     padding: 2.5rem 8%;
     grid-column: 1 / 2;
+    margin-right: 0;
   }
 
   .right-panel {
