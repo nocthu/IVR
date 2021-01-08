@@ -251,3 +251,24 @@ body {
         width: 45%;
     }
 }
+
+@media (max-width: 1174px) {
+    /* .post {
+        width: 45%;
+    } */
+    .custom-underline {
+        font-size: 100%;
+    }
+
+    .op {
+        font-size: 115%;
+    }
+
+    .account-name {
+        font-size: 90%;
+    }
+
+    .post {
+        font-size: 90%;
+    }
+}
