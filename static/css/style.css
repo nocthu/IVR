@@ -425,7 +425,7 @@ body {
         flex-direction: column;
         cursor: pointer;
         margin: -15px 2em;
-        z-index: 3;
+        z-index: 1;
     }
     
     .select-box .options-container {
@@ -438,7 +438,7 @@ body {
         border-radius: 10px;
         /* overflow: hidden; */
         text-align: center;
-        z-index: 3;
+        z-index: 1;
         
         order: 1;
     }
@@ -465,6 +465,10 @@ body {
         top: 5px;
     
         transition: all 0.4s;
+    }
+
+    .select-box.active {
+        display: none;
     }
     
     .select-box .options-container.active {
