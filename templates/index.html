@@ -11,8 +11,102 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="header">
+        <div class="header_burger">
+            <span></span>
+        </div>
 
+        <div class="header_menu">
+            <div class="account-field">
+                <div class="us_icon"><i class="fas fa-user"></i></div>
+                    <div class="account-name">{{ surname }} {{ name }}</div>
+    
+                    <div class="account-links">
+                        <div class="account-logout">
+                            <a href="/dropsession" class="logouth"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+                        </div>
+                    </div>
+    
+            </div>
+            <div class="header_list">
+                <a href="/myposts" class="op myposts"><i class="far fa-list-alt"></i> Мои посты</a>
+
+                <a href="/add_post" class="op f"><span><i class="fas fa-edit"></i> Пост</span></a>
+                <a href="/add_vacancy" class="op"><i class="fas fa-address-card"></i> Моя вакансия</a>
+                <a href="/add_quiz" class="op"><i class="fas fa-file-alt"></i> Опрос</a>
+                <a href="/add_idea" class="op l"><i class="fas fa-lightbulb"></i> Идея</a>
+            </div>
+        </div>
+
+        <div class="select-box">
+            <div class="options-container op1">
+                <div class="option opt1 type" onclick="change_type ('Все объявления')" data-filter="all"
+                    <input type="radio" class="radio" name="category" />
+                    <label>Все объявления</label>
+                </div>
+
+                <div class="option opt1 type" onclick="change_type ('Предложения')" data-filter="forme">
+                    <input type="radio" class="radio" name="category" />
+                    <label>Предложения</label>
+                </div>
+
+                <div class="option opt1 type" onclick="change_type ('Вакансии')" data-filter="me">
+                    <input type="radio" class="radio" name="category" />
+                    <label>Вакансии</label>
+                </div>
+
+                <div class="option opt1 type" onclick="change_type ('Опросы')" data-filter="quizes">
+                    <input type="radio" class="radio" name="category" />
+                    <label>Опросы</label>
+                </div>
+
+                <div class="option opt1 type" onclick="change_type ('Идеи')" data-filter="ideas">
+                    <input type="radio" class="radio" name="category" />
+                    <label>Идеи</label>
+                </div>
+            </div>
+            <div class="selected s1 type_box" id="type">
+                <b class="type_name">Все объявления</b>
+            </div>
+        </div>
+
+        <!-- <ul class="types">
+
+            <li class="type" data-filter="all">
+                Все объявления
+            </li>
+
+            <li class="type" data-filter="forme">
+                Предложения
+            </li>
+
+            <li class="type" data-filter="me">
+                Вакансии
+            </li>
+
+            <li class="type" data-filter="quizes">
+                Опросы
+            </li>
+
+            <li class="type" data-filter="ideas">
+                Идеи
+            </li>
+
+        </ul> -->
+    </div>
     <div class="left">
+        <!-- <nav class="header_menu">
+            <ul class="header_list">
+                <li>
+                    <a href="/" class="header_link">Главная</a> </li>
+                <li>
+                    <a href="#" class="header_link">Популярные курсы</a>
+                </li>
+                <li><a href="#" class="header_link">Сервис "поступление"</a></li>
+                <li><a href="#" class="header_link">О компании</a></li>
+                <li><a href="#" class="header_link">Мое обучение</a></li>
+            </ul>
+        </nav> -->
 
         <div class="account-field">
             <div class="us_icon"><i class="fas fa-user"></i></div>
@@ -41,6 +135,14 @@
                 <!-- <h4 class="h">Добавить...</h4> -->
 
                 <div class="options">
+                    <!-- <div class="header_menu">
+                        <div class="header_list">
+                            <a href="/add_post" class="op f"><span><i class="fas fa-edit"></i> Пост</span></a>
+                            <a href="/add_vacancy" class="op"><i class="fas fa-address-card"></i> Моя вакансия</a>
+                            <a href="/add_quiz" class="op"><i class="fas fa-file-alt"></i> Опрос</a>
+                            <a href="/add_idea" class="op l"><i class="fas fa-lightbulb"></i> Идея</a>
+                        </div>
+                    </div> -->
                     <a href="/add_post" class="op f"><span><i class="fas fa-edit"></i> Пост</span></a>
                     <a href="/add_vacancy" class="op"><i class="fas fa-address-card"></i> Моя вакансия</a>
                     <a href="/add_quiz" class="op"><i class="fas fa-file-alt"></i> Опрос</a>
@@ -266,6 +368,22 @@
             $('body').toggleClass('lock');
         });
     });
+
+    const selected1 = document.querySelector(".s1");
+        const optionsContainer1 = document.querySelector(".op1");
+        const optionsList1 = document.querySelectorAll(".opt1");
+        const type_name = document.querySelector(".type_name");
+
+        selected1.addEventListener("click", () => {
+            optionsContainer1.classList.toggle("active");
+        });
+
+        optionsList1.forEach(o => {
+            o.addEventListener("click", () => {
+                type_name.innerHTML = o.querySelector("label").innerHTML;
+                optionsContainer1.classList.remove("active");
+            });
+        });
 </script>
 </body>
 </html>

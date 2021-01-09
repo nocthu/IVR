@@ -32,10 +32,18 @@ body {
     outline: 1px solid #fff;
 }
 
+.header {
+    display: none;
+}
+
 .left {
     height: 100%;
     width: 20%;
     position: fixed;
+}
+
+.header_burger {
+    display: none
 }
 
 .right {
@@ -270,5 +278,243 @@ body {
 
     .post {
         font-size: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    body.lock {
+        overflow: hidden;
+    }
+
+    .header {
+        display: flex;
+        background-color: #fff;
+        width: 100%;
+        padding: 1em;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3em;
+        background-color: rgba(255, 255, 255, 1);
+        z-index: 2;
+        box-shadow: 10px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .left {
+        display: none;
+    }
+
+    .right {
+        width: 100%;
+        height: 100%;
+        margin-left: 0;
+        /* margin-top: 3em; */
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .posts {
+        width: 100%;
+        /* height: 100%; */
+        display: block;
+        margin: 3em auto;
+    }
+
+    .post {
+        width: 90%;
+        margin: 1em auto;
+    }
+
+    .header_burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .header_burger span {
+        position: absolute;
+        background-color: #333;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        transition: all 0.3s ease 0s;
+    }
+
+    .header_burger:before,
+    .header_burger:after {
+        content: '';
+        background-color: #333;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+
+    .header_burger:before {
+        top: 0;
+    }
+
+    .header_burger:after {
+        bottom: 0;
+    }
+
+    .header_burger.active:before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+
+    .header_burger.active:after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+
+    .header_burger.active span {
+        transform: scale(0);
+    }
+
+    .header_menu {
+        position: fixed;
+        top: -100%;
+        text-align: center;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        padding: 70px 10px 20px 10px;
+        transition: all 0.3s ease 0s;
+        overflow: auto;
+    }
+
+    .header_menu.active {
+        top: 0;
+    }
+
+    .header_list {
+        display: block;
+    }
+
+    .header_list li {
+        margin: 0px 0px 30px 0px;
+    }
+
+    .header_link {
+        font-size: 24px;
+    }
+
+    .types {
+        width: 80%;
+    }
+
+    .type {
+        display: block;
+    }
+
+    .select-box {
+        display: flex;
+        width: 250px;
+        flex-direction: column;
+        cursor: pointer;
+        margin: -15px 2em;
+        z-index: 3;
+    }
+    
+    .select-box .options-container {
+        background: #fff;
+        border: 1px solid #333;
+        /* max-height: 0; */
+        width: 100%;
+        opacity: 0;
+        transition: all 0.4s;
+        border-radius: 10px;
+        /* overflow: hidden; */
+        text-align: center;
+        z-index: 3;
+        
+        order: 1;
+    }
+    
+    .selected {
+        background: #fff;
+        border: 1px solid #333;
+        border-radius: 10px;
+        margin-bottom: 8px;
+        position: relative;
+        order: 0;
+    }
+    
+    .selected::after {
+        content: "";
+        background: url("img/arrow-down.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+    
+        position: absolute;
+        height: 100%;
+        width: 32px;
+        right: 10px;
+        top: 5px;
+    
+        transition: all 0.4s;
+    }
+    
+    .select-box .options-container.active {
+        max-height: 240px;
+        opacity: 1;
+        /* overflow-y: scroll; */
+    }
+    
+    .select-box .options-container.active + .selected::after {
+        transform: rotateX(180deg);
+        top: -6px;
+    }
+    
+    .select-box .options-container::-webkit-scrollbar {
+        width: 4%;
+        background: #D3D3D3;
+        border-radius: 99em;
+    }
+    
+    .select-box .options-container::-webkit-scrollbar-thumb {
+        background: rgba(186, 120, 55, 0.3);
+        border-radius: 99em;
+    }
+    
+    .select-box .option,
+    .selected {
+        padding: 12px 12px;
+        cursor: pointer;
+    }
+    
+    .select-box .option:hover {
+        background: rgba(83, 83, 83, 0.4);
+    }
+    
+    .select-box label {
+        cursor: pointer;
+    }
+    
+    .select-box .option .radio {
+        display: none;
+    }
+    
+    .selected small {
+        font-size: 75%;
+    }
+    
+    .selected img {
+        height: 28px;
+        width: 16px;
+        float: right;
+        margin: 5px 0;
     }
 }
